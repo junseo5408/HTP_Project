@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test_app.View.CalendarPage"
+             xmlns:xc="clr-namespace:XCalendar.Maui.Views;assembly=XCalendar.Maui"
+             xmlns:viewmodel="clr-namespace:test_app.ViewModel"
+             x:DataType="viewmodel:ArchiveViewModel"
+             xmlns:ct="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             Title="" Background="#F0F0F0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="68" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Image HorizontalOptions="Start" Grid.Row="0" Source="logo1.png"/>
+
+
+        <ct:SfCalendar Grid.Row="1" View="Month"
+                   BackgroundColor="Transparent"
+                   TodayHighlightBrush="red"/>
+    </Grid>
+</ContentPage>  

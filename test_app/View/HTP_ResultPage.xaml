@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test_app.View.HTP_ResultPage"
+             xmlns:viewmodel="clr-namespace:test_app.ViewModel"
+             x:DataType="viewmodel:HTP_ViewModel"
+             BackgroundColor="#F0F0F0"
+             Shell.BackgroundColor="#F0F0F0"
+             Title="HTP 테스트 결과">
+    <Grid>
+
+        <VerticalStackLayout>
+            <Label
+            TextColor="Black"
+            Text="{Binding OutputMsg}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

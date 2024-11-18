@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test_app.View.OtherPage" 
+             Title="" BackgroundColor="#F0F0F0">
+
+    <VerticalStackLayout>
+        <Image HorizontalOptions="Start"  Source="logo1.png"/>
+        <StackLayout Margin="25,0,25,0">
+            <Label Text="전체" FontSize="30" FontAttributes="Bold"/>
+
+            <Frame HeightRequest="25" 
+                   BackgroundColor="Transparent"
+                   BorderColor="Transparent"/>
+
+            <Border HeightRequest="113" BackgroundColor="White" StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+            </Border>
+            
+            <Frame HeightRequest="25" 
+                   BackgroundColor="Transparent"
+                   BorderColor="Transparent"/>
+            
+            <Border HeightRequest="113" BackgroundColor="White" StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+            </Border>
+            
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

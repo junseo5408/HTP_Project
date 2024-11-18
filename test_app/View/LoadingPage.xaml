@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test_app.View.LoadingPage"
+             NavigationPage.HasBackButton="False">
+    <Grid>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <ActivityIndicator IsRunning="true" 
+                           Margin="10"/>
+            <Label Text="그림을 스캔중입니다..."/>
+            <Label Text="잠시만 기다려 주세요"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

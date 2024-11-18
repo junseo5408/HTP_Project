@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test_app.View.Rorschach_StartPage"
+             xmlns:viewmodel="clr-namespace:test_app.ViewModel"
+             x:DataType="viewmodel:Rorschach_ViewModel"             
+             Title="로르샤흐 테스트" 
+             BackgroundColor="#F0F0F0"
+             Shell.BackgroundColor="#F0F0F0">
+
+
+    <VerticalStackLayout>
+        <Frame HeightRequest="50" 
+               BorderColor="Transparent"
+               BackgroundColor="Transparent"/>
+        <StackLayout Margin="30, 0, 30, 0">
+            <FlexLayout>
+                <Label Text="user user"
+                       FontAttributes="Bold"
+                       FontSize="20"/>
+
+                <Label Text=" 님만의 AI 상담사가"
+                       FontAttributes="Bold"
+                       FontSize="20"/>
+
+            </FlexLayout>
+            <Label Text="내면과 심리 상태를 진단해드려요"
+                   FontAttributes="Bold"
+                   FontSize="20"/>
+        </StackLayout>
+
+        <StackLayout Margin="30, 0, 30, 0">
+            <Label 
+            Text=""/>
+            <Label 
+            Text="로르샤흐 테스트는 제시된 잉크 반점 그림을 통해 "/>
+            <Label 
+            Text="사람의 내면과 심리 상태를 파악하는 심리 검사로 "/>
+            <Label 
+            Text="무의식적인 감정과 생각을 이해하는 데 도움이 됩니다."/>
+        </StackLayout>
+
+        <Image Source="text_img2.png" WidthRequest="387"/>
+        <StackLayout Margin="30, 0, 30, 0">
+            <Frame HeightRequest="100" 
+                   BackgroundColor="Transparent"
+                   BorderColor="Transparent"/>
+
+            <Button Command="{Binding GoHomeCommand}" 
+                BackgroundColor="#4F7C2D" 
+                Text="로르샤흐 테스트하기"
+                HeightRequest="55"
+                CornerRadius="20"/>
+
+            <Button Command="{Binding GoHomeCommand}"
+                    Text="다음에 하기"
+                    Margin="10" 
+                    BackgroundColor="Transparent"
+                    TextColor="Gray"/>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

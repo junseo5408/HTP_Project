@@ -1,0 +1,17 @@
+﻿using test_app.View;
+
+namespace test_app
+{
+    public partial class AppShell : Shell
+    {
+        public AppShell()
+        {
+            InitializeComponent();
+            Routing.RegisterRoute(nameof(HTP_StartPage), typeof(HTP_StartPage));
+            Routing.RegisterRoute(nameof(Rorschach_StartPage), typeof(Rorschach_StartPage));
+            Routing.RegisterRoute(nameof(HTP_ResultPage), typeof(HTP_ResultPage));
+            Routing.RegisterRoute(nameof(LoadingPage), typeof(LoadingPage));
+            //Routing.RegisterRoute(nameof(CameraPage), typeof(CameraPage));
+        }
+    }
+}
