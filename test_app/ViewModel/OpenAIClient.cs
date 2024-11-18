@@ -9,7 +9,7 @@ namespace test_app.ViewModel
     {
         private readonly AzureOpenAIClient _openAIClient;
         private readonly string _deploymentName;
-        string testImg = "https://fastly.picsum.photos/id/194/600/400.jpg?hmac=t_AoqVvThXHdUypviRUOPqKcb1y0A3qTbzk1_K8KcGk";
+        string testImg = "https://mindtoflow.me/wp-content/uploads/2023/07/KakaoTalk_20230712_132813024.jpg";
 
 
         public OpenAIClient()
@@ -31,7 +31,9 @@ namespace test_app.ViewModel
             {
                 new UserChatMessage(
                     ChatMessageContentPart.CreateTextPart("보이는 이미지에 대해 설명해줘. 한국어로"),
-                    ChatMessageContentPart.CreateImagePart(new Uri(imageByte), "auto"))
+                    //ChatMessageContentPart.CreateImagePart(new Uri(imageByte), "auto"))
+                    ChatMessageContentPart.CreateImagePart(new Uri(testImg), "auto"))
+
             };
 
             ChatCompletion chatCompletion = await chatClient.CompleteChatAsync(messages);

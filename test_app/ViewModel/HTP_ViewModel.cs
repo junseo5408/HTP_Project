@@ -1,5 +1,4 @@
-﻿using Android.Graphics;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using test_app.Model;
 using test_app.View;
@@ -126,6 +125,12 @@ namespace test_app.ViewModel
             }
         }
 
+        [RelayCommand]
+        async Task Testing()
+        {
+            await getMsgAsync();
+        }
+
         async Task ConvertToBase64(string filePath)
         {
             try
@@ -153,11 +158,11 @@ namespace test_app.ViewModel
 
         async Task getMsgAsync()
         {
-            string mimeType = "image/Jpeg"; // 이미지 형식에 따라 적절히 설정
-            string dataUrl = $"data:{mimeType};base64,{HTP_Data.base64String}";
+            //string mimeType = "image/Jpeg"; // 이미지 형식에 따라 적절히 설정
+            //string dataUrl = $"data:{mimeType};base64,{HTP_Data.base64String}";
 
             openAI = new OpenAIClient();
-            HTP_Data.ResultMsg = await openAI.GetImageDescriptionAsync(dataUrl);
+            HTP_Data.ResultMsg = await openAI.GetImageDescriptionAsync("dataUrl");
             HTP_Data.isLoading = false;
             HTP_Data.isResultOut = true;
             await GoResultPage();

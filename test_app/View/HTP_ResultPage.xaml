@@ -7,14 +7,61 @@
              BackgroundColor="#F0F0F0"
              Shell.BackgroundColor="#F0F0F0"
              Title="HTP 테스트 결과">
-    <Grid>
 
-        <VerticalStackLayout>
-            <Label
-            TextColor="Black"
-            Text="{Binding OutputMsg}"
-            VerticalOptions="Center"
-            HorizontalOptions="Center" />
-        </VerticalStackLayout>
-    </Grid>
+    <VerticalStackLayout>
+        <Border HeightRequest="480"
+                WidthRequest="360"
+                BackgroundColor="White" 
+                StrokeThickness="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20"/>
+            </Border.StrokeShape>
+
+            <StackLayout Margin="30 30">
+                <StackLayout>
+                    <Label Text="House"
+                           FontAttributes="Bold"/>
+                    <Label Text="집에 대한 설명 메시지"/>
+                </StackLayout>
+                
+                <Frame HeightRequest="1"
+                       BackgroundColor="Transparent"
+                       BorderColor="Transparent"/>
+                
+                <StackLayout>
+                    <Label Text="Tree"
+                           FontAttributes="Bold"/>
+                    <Label Text="나무에 대한 설명 메시지"/>
+                </StackLayout>
+
+                <Frame HeightRequest="1"
+                       BackgroundColor="Transparent"
+                       BorderColor="Transparent"/>
+
+                <StackLayout>
+                    <Label Text="Person"
+                           FontAttributes="Bold"/>
+                    <Label Text="사람에 대한 설명 메시지"/>
+                </StackLayout>
+
+                <Border HeightRequest="1" 
+                        BackgroundColor="LightGray"
+                        Margin="0, 30"/>
+
+                <Label Text="{Binding OutputMsg}"/>
+            </StackLayout>
+        </Border>
+
+        <Frame HeightRequest="20"
+                       BackgroundColor="Transparent"
+                       BorderColor="Transparent"/>
+
+        <Button Command=""
+                BackgroundColor="#4F7C2D" 
+                Text="저장하기"
+                HeightRequest="55"
+                CornerRadius="20"
+                Margin="20"/>
+        
+    </VerticalStackLayout>
 </ContentPage>
