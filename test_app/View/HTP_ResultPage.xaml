@@ -9,6 +9,11 @@
              Title="HTP 테스트 결과">
 
     <VerticalStackLayout>
+        <Image Source="person.png" 
+               HeightRequest="144"
+               Margin="0, 0, 0, -20"
+               ZIndex="1"/>
+        
         <Border HeightRequest="480"
                 WidthRequest="360"
                 BackgroundColor="White" 

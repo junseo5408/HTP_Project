@@ -23,14 +23,14 @@ namespace test_app.ViewModel
             _deploymentName = modelName;
         }
 
-        public async Task<string> GetImageDescriptionAsync(string imageByte)
+        public async Task<string> GetImageDescriptionAsync(string imageByte, string prompt)
         {
             var chatClient = _openAIClient.GetChatClient(_deploymentName);
 
             List<ChatMessage> messages = new List<ChatMessage>
             {
                 new UserChatMessage(
-                    ChatMessageContentPart.CreateTextPart("보이는 이미지에 대해 설명해줘. 한국어로"),
+                    ChatMessageContentPart.CreateTextPart(prompt),
                     //ChatMessageContentPart.CreateImagePart(new Uri(imageByte), "auto"))
                     ChatMessageContentPart.CreateImagePart(new Uri(testImg), "auto"))
 
@@ -40,6 +40,5 @@ namespace test_app.ViewModel
 
             return chatCompletion.Content[0].Text;
         }
-
     }
 }

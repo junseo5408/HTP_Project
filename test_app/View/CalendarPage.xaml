@@ -12,8 +12,16 @@
             <RowDefinition Height="68" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <Image HorizontalOptions="Start" Grid.Row="0" Source="logo1.png"/>
+
+        <FlexLayout Grid.Row="0" >
+            <Frame HeightRequest="1"
+                   WidthRequest="25"
+                   BackgroundColor="Transparent"
+                   BorderColor="Transparent"/>
+            
+            <Image Source="logo1.png"
+               HeightRequest="30"/>
+        </FlexLayout>
 
 
         <ct:SfCalendar Grid.Row="1" View="Month"

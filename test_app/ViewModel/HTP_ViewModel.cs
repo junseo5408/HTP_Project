@@ -156,6 +156,7 @@ namespace test_app.ViewModel
             }
         }
 
+        //Get Message H.T.P
         async Task getMsgAsync()
         {
             //string mimeType = "image/Jpeg"; // 이미지 형식에 따라 적절히 설정
@@ -163,11 +164,10 @@ namespace test_app.ViewModel
 
             openAI = new OpenAIClient();
             HTP_Data.ResultMsg = await openAI.GetImageDescriptionAsync("dataUrl");
-            HTP_Data.isLoading = false;
-            HTP_Data.isResultOut = true;
+            //HTP_Data.isLoading = false;
+            //HTP_Data.isResultOut = true;
             await GoResultPage();
         }
-
 
         async Task GoResultPage()
         {
@@ -187,7 +187,7 @@ namespace test_app.ViewModel
                 image.Mutate(x => x.Resize(width, height));
 
                 // JPEG 포맷으로 저장 (품질 설정 가능)
-                image.Save(outputPath, new JpegEncoder { Quality = 75 });
+                image.Save(outputPath, new JpegEncoder { Quality = 60 });
             }
 
             return outputPath;

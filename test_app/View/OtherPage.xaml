@@ -5,7 +5,15 @@
              Title="" BackgroundColor="#F0F0F0">
 
     <VerticalStackLayout>
-        <Image HorizontalOptions="Start"  Source="logo1.png"/>
+        <FlexLayout>
+            <Frame HeightRequest="1"
+                   WidthRequest="25"
+                   BackgroundColor="Transparent"
+                   BorderColor="Transparent"/>
+
+            <Image Source="logo1.png"
+               HeightRequest="30"/>
+        </FlexLayout>
         <StackLayout Margin="25,0,25,0">
             <Label Text="전체" FontSize="30" FontAttributes="Bold"/>
 

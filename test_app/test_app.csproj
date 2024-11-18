@@ -65,6 +65,7 @@
 	  <None Remove="Resources\Images\logo1.png" />
 	  <None Remove="Resources\Images\menu.png" />
 	  <None Remove="Resources\Images\people.png" />
+	  <None Remove="Resources\Images\person.png" />
 	  <None Remove="Resources\Images\photo.png" />
 	  <None Remove="Resources\Images\shot_icon.png" />
 	  <None Remove="Resources\Images\Test_img.jpg" />
