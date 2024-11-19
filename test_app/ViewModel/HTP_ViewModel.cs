@@ -15,7 +15,9 @@ namespace test_app.ViewModel
     {
         OpenAIClient openAI;
         private string _outputMsg = HTP_Data.ResultMsg;
-        private string resizedImagePath;
+        private string _houseMsg = HTP_Data.HouseMsg;
+        private string _treeMsg = HTP_Data.TreeMsg;
+        private string _personMsg = HTP_Data.PersonMsg;
         //private bool _resultOut = HTP_Data.isResultOut;
         //private bool _isLoading = HTP_Data.isLoading;
 
@@ -23,6 +25,24 @@ namespace test_app.ViewModel
         {
             get { return _outputMsg; }
             set { _outputMsg = value; }
+        }
+
+        public string HouseMsg
+        {
+            get { return _houseMsg; }
+            set { _houseMsg = value; }
+        }
+
+        public string TreeMsg
+        {
+            get { return _treeMsg; }
+            set { _treeMsg = value; }
+        }
+
+        public string PersonMsg
+        {
+            get { return _treeMsg; }
+            set { _treeMsg = value; }
         }
 
         //public bool ResultOut
@@ -163,7 +183,8 @@ namespace test_app.ViewModel
             //string dataUrl = $"data:{mimeType};base64,{HTP_Data.base64String}";
 
             openAI = new OpenAIClient();
-            HTP_Data.ResultMsg = await openAI.GetImageDescriptionAsync("dataUrl");
+            string all_msg = await openAI.GetImageDescriptionAsync("dataUrl");
+            SetMiddleString(all_msg);
             //HTP_Data.isLoading = false;
             //HTP_Data.isResultOut = true;
             await GoResultPage();
@@ -193,5 +214,27 @@ namespace test_app.ViewModel
             return outputPath;
         }
 
+        private void SetMiddleString(string str)
+        {
+            string a1 = "1a";
+            string b1 = "1b";
+            string a2 = "2a";
+            string b2 = "2b";
+            string a3 = "3a";
+            string b3 = "3b";
+            string a4 = "4a";
+            string b4 = "4b";
+
+            if (string.IsNullOrEmpty(str))
+            {
+                str = string.Empty;
+            }
+            int length = str.Length;
+            HTP_Data.HouseMsg = str.Substring(str.IndexOf(a1) + 2, str.IndexOf(b1) - 2);
+            str = str.Substring(HTP_Data.HouseMsg.Length + 2, length);
+            HTP_Data.TreeMsg = str.Substring(str.IndexOf(a2)+2,  str.IndexOf(b2)-2);
+            HTP_Data.PersonMsg = str.Substring(str.IndexOf(a3), str.IndexOf(b3));
+            HTP_Data.ResultMsg = str.Substring(str.IndexOf(a4), str.IndexOf(b4));
+        }
     }
 }

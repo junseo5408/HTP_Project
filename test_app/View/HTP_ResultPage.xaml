@@ -13,7 +13,7 @@
                HeightRequest="144"
                Margin="0, 0, 0, -20"
                ZIndex="1"/>
-        
+
         <Border HeightRequest="480"
                 WidthRequest="360"
                 BackgroundColor="White" 
@@ -26,17 +26,17 @@
                 <StackLayout>
                     <Label Text="House"
                            FontAttributes="Bold"/>
-                    <Label Text="집에 대한 설명 메시지"/>
+                    <Label Text="{Binding HouseMsg}"/>
                 </StackLayout>
-                
+
                 <Frame HeightRequest="1"
                        BackgroundColor="Transparent"
                        BorderColor="Transparent"/>
-                
+
                 <StackLayout>
                     <Label Text="Tree"
                            FontAttributes="Bold"/>
-                    <Label Text="나무에 대한 설명 메시지"/>
+                    <Label Text="{Binding TreeMsg}"/>
                 </StackLayout>
 
                 <Frame HeightRequest="1"
@@ -46,7 +46,7 @@
                 <StackLayout>
                     <Label Text="Person"
                            FontAttributes="Bold"/>
-                    <Label Text="사람에 대한 설명 메시지"/>
+                    <Label Text="{Binding PersonMsg}"/>
                 </StackLayout>
 
                 <Border HeightRequest="1" 
@@ -56,10 +56,6 @@
                 <Label Text="{Binding OutputMsg}"/>
             </StackLayout>
         </Border>
-
-        <Frame HeightRequest="20"
-                       BackgroundColor="Transparent"
-                       BorderColor="Transparent"/>
 
         <Button 
                 BackgroundColor="#4F7C2D" 
