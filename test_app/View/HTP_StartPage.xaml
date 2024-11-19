@@ -54,7 +54,7 @@
             <Frame HeightRequest="10" 
                    BorderColor="Transparent"
                    BackgroundColor="Transparent"/>
-            <Button Command="{Binding TestingCommand}"
+            <Button Command="{Binding OpenMediaPickerCommand}"
                     BackgroundColor="#4F7C2D" 
                     Text="이미지 선택"
                     HeightRequest="55"

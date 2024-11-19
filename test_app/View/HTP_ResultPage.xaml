@@ -7,14 +7,14 @@
              BackgroundColor="#F0F0F0"
              Shell.BackgroundColor="#F0F0F0"
              Title="HTP 테스트 결과">
-
+    <ScrollView>
     <VerticalStackLayout>
         <Image Source="person.png" 
-               HeightRequest="144"
+               HeightRequest="130"
                Margin="0, 0, 0, -20"
                ZIndex="1"/>
 
-        <Border HeightRequest="480"
+        <Border HeightRequest="525"
                 WidthRequest="360"
                 BackgroundColor="White" 
                 StrokeThickness="0">
@@ -51,7 +51,7 @@
 
                 <Border HeightRequest="1" 
                         BackgroundColor="LightGray"
-                        Margin="0, 30"/>
+                        Margin="0, 20"/>
 
                 <Label Text="{Binding OutputMsg}"/>
             </StackLayout>
@@ -65,4 +65,5 @@
                 Margin="20"/>
         
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -16,7 +16,7 @@ namespace test_app.ViewModel
             "그리고 나무는 2a, 2b 사이에, 사람은 3a, 3b 사이에 적어줘 " +
             "각 카테고리마다 최소 80자 이상 최대 100자 이내로 간추뤄서 답변이 이루어져야되고 마지막으로 종합결과를 출력해줘 " +
             "종합결과에는 위 내용들과 그림의 상태 및 내용을 인식하여 그린이의 심리분석을 자세히 해주어야해 " +
-            "4a, 4b 사이에 내용이 출력되어야되 그리고 250자 이 300자 이내로 출력되어야되\r\n\r\n" +
+            "4a, 4b 사이에 내용이 출력되어야되 그리고 200자 이 250자 이내로 출력되어야되\r\n\r\n" +
             "마지막으로 모든 결과는 친절한 말투로 이루어져야되\r\n\r\n" +
             "출력예시:" +
             "\r\n1a출력내용1b\r\n" +
@@ -43,8 +43,8 @@ namespace test_app.ViewModel
             {
                 new UserChatMessage(
                     ChatMessageContentPart.CreateTextPart(prompt),
-                    //ChatMessageContentPart.CreateImagePart(new Uri(imageByte), "auto"))
-                    ChatMessageContentPart.CreateImagePart(new Uri(testImg), "auto"))
+                    ChatMessageContentPart.CreateImagePart(new Uri(imageByte), "auto"))
+                    //ChatMessageContentPart.CreateImagePart(new Uri(testImg), "auto"))
 
             };
 

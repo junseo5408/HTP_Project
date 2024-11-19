@@ -41,8 +41,8 @@ namespace test_app.ViewModel
 
         public string PersonMsg
         {
-            get { return _treeMsg; }
-            set { _treeMsg = value; }
+            get { return _personMsg; }
+            set { _personMsg = value; }
         }
 
         //public bool ResultOut
@@ -131,7 +131,7 @@ namespace test_app.ViewModel
 
                         // 저장된 파일을 Base64로 변환
                         await OpenLoadingPage();
-                        await ConvertToBase64(ResizeImage(localFilePath, localFilePath, 800, 600));
+                        await ConvertToBase64(ResizeImage(localFilePath, localFilePath, 700, 500));
                     }
                     catch (Exception ex)
                     {
@@ -179,11 +179,11 @@ namespace test_app.ViewModel
         //Get Message H.T.P
         async Task getMsgAsync()
         {
-            //string mimeType = "image/Jpeg"; // 이미지 형식에 따라 적절히 설정
-            //string dataUrl = $"data:{mimeType};base64,{HTP_Data.base64String}";
+            string mimeType = "image/Jpeg"; // 이미지 형식에 따라 적절히 설정
+            string dataUrl = $"data:{mimeType};base64,{HTP_Data.base64String}";
 
             openAI = new OpenAIClient();
-            string all_msg = await openAI.GetImageDescriptionAsync("dataUrl");
+            string all_msg = await openAI.GetImageDescriptionAsync(dataUrl);
             SetMiddleString(all_msg);
             //HTP_Data.isLoading = false;
             //HTP_Data.isResultOut = true;
@@ -214,6 +214,7 @@ namespace test_app.ViewModel
             return outputPath;
         }
 
+        //텍스트 불리 메서드
         private void SetMiddleString(string str)
         {
             string a1 = "1a";
@@ -225,16 +226,53 @@ namespace test_app.ViewModel
             string a4 = "4a";
             string b4 = "4b";
 
+
+            // 유효성 검증
             if (string.IsNullOrEmpty(str))
             {
-                str = string.Empty;
+                Console.WriteLine("입력 문자열이 비어있습니다.");
+                return;
             }
-            int length = str.Length;
-            HTP_Data.HouseMsg = str.Substring(str.IndexOf(a1) + 2, str.IndexOf(b1) - 2);
-            str = str.Substring(HTP_Data.HouseMsg.Length + 2, length);
-            HTP_Data.TreeMsg = str.Substring(str.IndexOf(a2)+2,  str.IndexOf(b2)-2);
-            HTP_Data.PersonMsg = str.Substring(str.IndexOf(a3), str.IndexOf(b3));
-            HTP_Data.ResultMsg = str.Substring(str.IndexOf(a4), str.IndexOf(b4));
+
+            try
+            {
+                // 1a와 1b 사이 내용 추출
+                int startIndex1 = str.IndexOf(a1) + a1.Length;
+                int endIndex1 = str.IndexOf(b1);
+                if (startIndex1 > 0 && endIndex1 > startIndex1)
+                {
+                    HTP_Data.HouseMsg = str.Substring(startIndex1, endIndex1 - startIndex1).Replace("\n","").Replace("\r","");
+                }
+
+                // 2a와 2b 사이 내용 추출
+                int startIndex2 = str.IndexOf(a2) + a2.Length;
+                int endIndex2 = str.IndexOf(b2);
+                if (startIndex2 > 0 && endIndex2 > startIndex2)
+                {
+                    HTP_Data.TreeMsg = str.Substring(startIndex2, endIndex2 - startIndex2).Replace("\n", "").Replace("\r", "");
+                }
+
+                // 3a와 3b 사이 내용 추출
+                int startIndex3 = str.IndexOf(a3) + a3.Length;
+                int endIndex3 = str.IndexOf(b3);
+                if (startIndex3 > 0 && endIndex3 > startIndex3)
+                {
+                    HTP_Data.PersonMsg = str.Substring(startIndex3, endIndex3 - startIndex3).Replace("\n", "").Replace("\r", "");
+                }
+
+                // 4a와 4b 사이 내용 추출
+                int startIndex4 = str.IndexOf(a4) + a4.Length;
+                int endIndex4 = str.IndexOf(b4);
+                if (startIndex4 > 0 && endIndex4 > startIndex4)
+                {
+                    HTP_Data.ResultMsg = str.Substring(startIndex4, endIndex4 - startIndex4).Replace("\n", "").Replace("\r", "");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine($"오류 발생: {ex.Message}");
+            }
         }
     }
 }
