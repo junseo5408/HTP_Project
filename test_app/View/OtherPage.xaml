@@ -12,7 +12,7 @@
                    BorderColor="Transparent"/>
 
             <Image Source="logo1.png"
-               HeightRequest="30"/>
+               HeightRequest="40"/>
         </FlexLayout>
         <StackLayout Margin="25,0,25,0">
             <Label Text="전체" FontSize="30" FontAttributes="Bold"/>
@@ -25,18 +25,70 @@
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="20"/>
                 </Border.StrokeShape>
+                <Grid>
+                    <FlexLayout AlignItems="Center">
+                        <Frame CornerRadius="40" 
+                               HeightRequest="75" 
+                               WidthRequest="75"
+                               Margin="10,0,10,0">
+
+                            <Image x:Name="profileImg"
+                                   Source="profile_img.jpg"
+                                   Aspect="AspectFill"
+                                   HeightRequest="75" 
+                                   WidthRequest="75"/>
+                        </Frame>
+
+                        <StackLayout VerticalOptions="Center">
+                            <Label Text="username" FontSize="30" FontAttributes="Bold"/>
+                            <Label Text="user@mail.com" FontSize="15" TextColor="LightGray"/>
+                        </StackLayout>
+                    </FlexLayout>
+                    <Image Source="right_arrow"
+                           WidthRequest="30"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           Margin="15"/>
+                </Grid>
             </Border>
-            
+
             <Frame HeightRequest="25" 
                    BackgroundColor="Transparent"
                    BorderColor="Transparent"/>
-            
-            <Border HeightRequest="113" BackgroundColor="White" StrokeThickness="0">
+
+            <Border HeightRequest="350" BackgroundColor="White" StrokeThickness="0">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="20"/>
                 </Border.StrokeShape>
             </Border>
-            
+
+            <Frame HeightRequest="25" 
+                   BackgroundColor="Transparent"
+                   BorderColor="Transparent"/>
+
+            <Border HeightRequest="80" BackgroundColor="#FFCCCC" StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <!-- 탭 이벤트 <TapGestureRecognizer Tapped="" />-->
+                </Border.GestureRecognizers>
+                <FlexLayout AlignItems="Center">
+                    <Frame BackgroundColor="#FF4D4D"
+                           WidthRequest="40"
+                           HeightRequest="40"
+                           BorderColor="Transparent"
+                           Margin="12"
+                           CornerRadius="10">
+
+                        <Image Source="turn_off.png" 
+                               WidthRequest="20"
+                               HeightRequest="20"
+                               Aspect="AspectFill"/>
+                    </Frame>
+                    <Label Text="탈퇴하기" FontSize="18"/>
+                </FlexLayout>
+            </Border>
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

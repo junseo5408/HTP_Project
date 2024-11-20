@@ -14,8 +14,7 @@
                Margin="0, 0, 0, -20"
                ZIndex="1"/>
 
-        <Border HeightRequest="525"
-                WidthRequest="360"
+        <Border WidthRequest="360"
                 BackgroundColor="White" 
                 StrokeThickness="0">
             <Border.StrokeShape>

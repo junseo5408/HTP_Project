@@ -11,7 +11,7 @@
                    BorderColor="Transparent"/>
 
             <Image Source="logo1.png"
-               HeightRequest="30"/>
+               HeightRequest="40"/>
         </FlexLayout>
         
         <Label 

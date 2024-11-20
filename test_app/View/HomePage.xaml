@@ -7,34 +7,34 @@
              x:DataType="viewmodel:HomeViewModel"
              Title="" BackgroundColor="#F0F0F0">
     <ScrollView>
-        <VerticalStackLayout>
-            <FlexLayout>
-                <Frame HeightRequest="1"
-                   WidthRequest="25"
-                   BackgroundColor="Transparent"
-                   BorderColor="Transparent"/>
+        <VerticalStackLayout Margin="20,0,20,0">
+            <Frame BackgroundColor="Transparent"
+                   BorderColor="Transparent"
+                   HeightRequest="10"/>
+            
+            <Image Source="logo1.png"
+                   HeightRequest="40"
+                   HorizontalOptions="Center"/>
 
-                <Image Source="logo1.png"
-               HeightRequest="30"/>
-            </FlexLayout>
+            <Frame BackgroundColor="Transparent"
+                   BorderColor="Transparent"
+                   HeightRequest="10"/>
 
-            <StackLayout MaximumWidthRequest="350">
-                <ImageButton Command="{Binding GoHTPCommand}"
+            <ImageButton Command="{Binding GoHTPCommand}"
                              Source="banner1.png" 
                              CornerRadius="20"/>
 
-                <Frame BackgroundColor="Transparent"
+            <Frame BackgroundColor="Transparent"
                    BorderColor="Transparent" 
                    HeightRequest="5"/>
 
-                <ImageButton Command="{Binding GoRorschachCommand}"
+            <ImageButton Command="{Binding GoRorschachCommand}"
                              BackgroundColor="White"
                              Source="banner2.png"
                              CornerRadius="20"/>
 
-                <Frame BackgroundColor="Transparent"
+            <Frame BackgroundColor="Transparent"
                        BorderColor="Transparent"/>
-            </StackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

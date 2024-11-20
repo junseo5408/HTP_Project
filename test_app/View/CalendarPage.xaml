@@ -9,7 +9,7 @@
              Title="" Background="#F0F0F0">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="68" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -20,7 +20,7 @@
                    BorderColor="Transparent"/>
             
             <Image Source="logo1.png"
-               HeightRequest="30"/>
+               HeightRequest="40"/>
         </FlexLayout>
 
 
