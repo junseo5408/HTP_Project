@@ -14,6 +14,7 @@
 
                 <Image Source="logo1.png"
                HeightRequest="40"/>
+               
             </FlexLayout>
             <StackLayout Margin="25,0,25,0">
                 <Label Text="전체" FontSize="30" FontAttributes="Bold"/>
@@ -96,6 +97,11 @@
                                 <Label Text="보안"
                                    FontSize="20"/>
                             </FlexLayout>
+                            <Image Source="right_arrow"
+                                        WidthRequest="30"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="End"
+                                        Margin="15"/>
                         </Grid>
                         <Grid HeightRequest="76">
                             <FlexLayout AlignItems="Center">
@@ -113,6 +119,11 @@
                                 <Label Text="알람"
                                    FontSize="20"/>
                             </FlexLayout>
+                            <Image Source="right_arrow"
+                                         WidthRequest="30"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="End"
+                                         Margin="15"/>
                         </Grid>
                         <Grid HeightRequest="76">
                             <FlexLayout AlignItems="Center">
@@ -131,6 +142,11 @@
                                 <Label Text="공지사항"
                                    FontSize="20"/>
                             </FlexLayout>
+                            <Image Source="right_arrow"
+                                        WidthRequest="30"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="End"
+                                        Margin="15"/>
                         </Grid>
                         <Grid HeightRequest="76">
                             <FlexLayout AlignItems="Center">
@@ -149,6 +165,11 @@
                                 <Label Text="문의하기"
                                    FontSize="20"/>
                             </FlexLayout>
+                            <Image Source="right_arrow"
+                                        WidthRequest="30"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="End"
+                                        Margin="15"/>
                         </Grid>
                     </StackLayout>
                 </Border>
