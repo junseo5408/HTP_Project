@@ -69,6 +69,7 @@
 	  <None Remove="Resources\Images\photo.png" />
 	  <None Remove="Resources\Images\profile_img.jpg" />
 	  <None Remove="Resources\Images\right_arrow.png" />
+	  <None Remove="Resources\Images\sample1.png" />
 	  <None Remove="Resources\Images\shot_icon.png" />
 	  <None Remove="Resources\Images\Test_img.jpg" />
 	  <None Remove="Resources\Images\text_img1.png" />

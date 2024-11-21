@@ -2,27 +2,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="test_app.View.Rorschach_ResultPage"
-             Title="Rorschach_ResultPage">
-    <VerticalStackLayout>
-        <StackLayout>
-            <Label Text="로르샤흐 테스트" Margin="140,0,0,0"
-                   FontSize="20"
-                   FontAttributes="Bold"/>
-        </StackLayout>
-        <StackLayout>
-            <FlexLayout>
-                <Label Text="1" Margin="97,0,0,0"
-                                FontSize="30"
-                                FontAttributes="Bold"/>
-                <Label Text="/10" Margin="5"
+             Title="로르샤흐 테스트"
+             Shell.BackgroundColor="#F0F0F0"
+             BackgroundColor="#F0F0F0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+       
+        <StackLayout Grid.Row="0">
+            <FlexLayout HorizontalOptions="Center" AlignItems="Center">
+                <Label Text="1"
+                       FontSize="30"
+                       FontAttributes="Bold"/>
+                <Label Text="/10" 
                        FontSize="15"/>
             </FlexLayout>
+            
         </StackLayout>
-        <StackLayout>
-            <Image Source="ro.test.webp"
-                   HeightRequest="650"/>
-        </StackLayout>
-    </VerticalStackLayout>
+        <Grid Grid.Row="3">
+            <Image Source="ro.test.webp"/>
+        </Grid>
+    </Grid>
 </ContentPage>
   
         
