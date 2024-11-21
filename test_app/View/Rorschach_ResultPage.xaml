@@ -4,9 +4,25 @@
              x:Class="test_app.View.Rorschach_ResultPage"
              Title="Rorschach_ResultPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <StackLayout>
+            <Label Text="로르샤흐 테스트" Margin="140,0,0,0"
+                   FontSize="20"
+                   FontAttributes="Bold"/>
+        </StackLayout>
+        <StackLayout>
+            <FlexLayout>
+                <Label Text="1" Margin="97,0,0,0"
+                                FontSize="30"
+                                FontAttributes="Bold"/>
+                <Label Text="/10" Margin="5"
+                       FontSize="15"/>
+            </FlexLayout>
+        </StackLayout>
+        <StackLayout>
+            <Image Source="ro.test.webp"
+                   HeightRequest="650"/>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
+  
+        
