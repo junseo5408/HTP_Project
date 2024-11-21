@@ -46,7 +46,7 @@
                    BackgroundColor="Transparent"
                    BorderColor="Transparent"/>
 
-            <Button Command="{Binding GoHomeCommand}" 
+            <Button Command="{Binding GoResultCommand}" 
                 BackgroundColor="#4F7C2D" 
                 Text="로르샤흐 테스트하기"
                 HeightRequest="55"

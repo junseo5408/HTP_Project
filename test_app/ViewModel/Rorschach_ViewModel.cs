@@ -1,6 +1,7 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using test_app.View;
 
 namespace test_app.ViewModel
 {
@@ -10,6 +11,12 @@ namespace test_app.ViewModel
         async Task GoHome()
         {
             await Shell.Current.GoToAsync("..");
+        }
+
+        [RelayCommand]
+        async Task GoResult()
+        {
+            await Shell.Current.GoToAsync(nameof(Rorschach_ResultPage));
         }
     }
 }
