@@ -4,91 +4,183 @@
              x:Class="test_app.View.OtherPage" 
              Title="" BackgroundColor="#F0F0F0">
 
-    <VerticalStackLayout>
-        <FlexLayout>
-            <Frame HeightRequest="1"
+    <ScrollView>
+        <VerticalStackLayout>
+            <FlexLayout>
+                <Frame HeightRequest="1"
                    WidthRequest="25"
                    BackgroundColor="Transparent"
                    BorderColor="Transparent"/>
 
-            <Image Source="logo1.png"
+                <Image Source="logo1.png"
                HeightRequest="40"/>
-        </FlexLayout>
-        <StackLayout Margin="25,0,25,0">
-            <Label Text="전체" FontSize="30" FontAttributes="Bold"/>
+            </FlexLayout>
+            <StackLayout Margin="25,0,25,0">
+                <Label Text="전체" FontSize="30" FontAttributes="Bold"/>
 
-            <Frame HeightRequest="25" 
+                <Frame HeightRequest="25" 
                    BackgroundColor="Transparent"
                    BorderColor="Transparent"/>
 
-            <Border HeightRequest="113" BackgroundColor="White" StrokeThickness="0">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="20"/>
-                </Border.StrokeShape>
-                <Grid>
-                    <FlexLayout AlignItems="Center">
-                        <Frame CornerRadius="40" 
+                <Border HeightRequest="113" BackgroundColor="White" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Grid>
+                        <FlexLayout AlignItems="Center">
+                            <Frame CornerRadius="40" 
                                HeightRequest="75" 
                                WidthRequest="75"
                                Margin="10,0,10,0">
 
-                            <Image x:Name="profileImg"
+                                <Image x:Name="profileImg"
                                    Source="profile_img.jpg"
                                    Aspect="AspectFill"
                                    HeightRequest="75" 
                                    WidthRequest="75"/>
-                        </Frame>
+                            </Frame>
 
-                        <StackLayout VerticalOptions="Center">
-                            <Label Text="username" FontSize="30" FontAttributes="Bold"/>
-                            <Label Text="user@mail.com" FontSize="15" TextColor="LightGray"/>
-                        </StackLayout>
-                    </FlexLayout>
-                    <Image Source="right_arrow"
+                            <StackLayout VerticalOptions="Center">
+                                <Label Text="username" FontSize="30" FontAttributes="Bold"/>
+                                <Label Text="user@mail.com" FontSize="15" TextColor="LightGray"/>
+                            </StackLayout>
+                        </FlexLayout>
+                        <Image Source="right_arrow"
                            WidthRequest="30"
                            VerticalOptions="Center"
                            HorizontalOptions="End"
                            Margin="15"/>
-                </Grid>
-            </Border>
+                    </Grid>
+                </Border>
 
-            <Frame HeightRequest="25" 
+                <Frame HeightRequest="25" 
                    BackgroundColor="Transparent"
                    BorderColor="Transparent"/>
 
-            <Border HeightRequest="350" BackgroundColor="White" StrokeThickness="0">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="20"/>
-                </Border.StrokeShape>
-            </Border>
+                <Border  BackgroundColor="White" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <StackLayout>
+                        <Grid HeightRequest="76">
+                            <FlexLayout AlignItems="Center">
+                                <Frame BackgroundColor="#FFDB0F"
+                                   WidthRequest="40"
+                                   HeightRequest="40"
+                                   Margin="12"
+                                   BorderColor="Transparent">
 
-            <Frame HeightRequest="25" 
+                                    <Image Source="moon.png"
+                                      WidthRequest="20"
+                                      HeightRequest="20"
+                                      Aspect="AspectFill"    />
+
+                                </Frame>
+                                <Label Text="다크모드"
+                                   FontSize="20"/>
+                            </FlexLayout>
+                        </Grid>
+                        <Grid HeightRequest="76">
+                            <FlexLayout AlignItems="Center">
+                                <Frame BackgroundColor="#0077FF"
+                                   WidthRequest="40"
+                                   HeightRequest="40"
+                                   Margin="12"
+                                   BorderColor="Transparent">
+
+                                    <Image Source="lock.png"
+                                           WidthRequest="20"
+                                           HeightRequest="20"
+                                           Aspect="AspectFill" />
+                                </Frame>
+                                <Label Text="보안"
+                                   FontSize="20"/>
+                            </FlexLayout>
+                        </Grid>
+                        <Grid HeightRequest="76">
+                            <FlexLayout AlignItems="Center">
+                                <Frame BackgroundColor="LightGray"
+                                   WidthRequest="40"
+                                   HeightRequest="40"
+                                   Margin="12"
+                                   BorderColor="Transparent">
+
+                                    <Image Source="bell.png"
+                                        WidthRequest="20"
+                                        HeightRequest="20"
+                                        Aspect="AspectFill" />
+                                </Frame>
+                                <Label Text="알람"
+                                   FontSize="20"/>
+                            </FlexLayout>
+                        </Grid>
+                        <Grid HeightRequest="76">
+                            <FlexLayout AlignItems="Center">
+                                <Frame BackgroundColor="#33B847"
+                                   WidthRequest="40"
+                                   HeightRequest="40"
+                                   Margin="12"
+                                   BorderColor="Transparent">
+
+                                    <Image Source="speaker.png"
+                                        WidthRequest="20"
+                                        HeightRequest="20"
+                                        Aspect="AspectFill" />
+
+                                </Frame>
+                                <Label Text="공지사항"
+                                   FontSize="20"/>
+                            </FlexLayout>
+                        </Grid>
+                        <Grid HeightRequest="76">
+                            <FlexLayout AlignItems="Center">
+                                <Frame BackgroundColor="LightGray"
+                                   WidthRequest="40"
+                                   HeightRequest="40"
+                                   Margin="12"
+                                   BorderColor="Transparent">
+                                    
+                                    <Image Source="headphone.png"
+                                         WidthRequest="20"
+                                         HeightRequest="20"
+                                         Aspect="AspectFill" />
+
+                                </Frame>
+                                <Label Text="문의하기"
+                                   FontSize="20"/>
+                            </FlexLayout>
+                        </Grid>
+                    </StackLayout>
+                </Border>
+
+                <Frame HeightRequest="25" 
                    BackgroundColor="Transparent"
                    BorderColor="Transparent"/>
 
-            <Border HeightRequest="80" BackgroundColor="#FFCCCC" StrokeThickness="0">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="20"/>
-                </Border.StrokeShape>
-                <Border.GestureRecognizers>
-                    <!-- 탭 이벤트 <TapGestureRecognizer Tapped="" />-->
-                </Border.GestureRecognizers>
-                <FlexLayout AlignItems="Center">
-                    <Frame BackgroundColor="#FF4D4D"
+                <Border HeightRequest="80" BackgroundColor="#FFCCCC" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <!-- 탭 이벤트 <TapGestureRecognizer Tapped="" />-->
+                    </Border.GestureRecognizers>
+                    <FlexLayout AlignItems="Center">
+                        <Frame BackgroundColor="#FF4D4D"
                            WidthRequest="40"
                            HeightRequest="40"
                            BorderColor="Transparent"
                            Margin="12"
                            CornerRadius="10">
 
-                        <Image Source="turn_off.png" 
+                            <Image Source="turn_off.png" 
                                WidthRequest="20"
                                HeightRequest="20"
                                Aspect="AspectFill"/>
-                    </Frame>
-                    <Label Text="탈퇴하기" FontSize="18"/>
-                </FlexLayout>
-            </Border>
-        </StackLayout>
-    </VerticalStackLayout>
+                        </Frame>
+                        <Label Text="탈퇴하기" FontSize="18"/>
+                    </FlexLayout>
+                </Border>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
