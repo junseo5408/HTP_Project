@@ -10,33 +10,42 @@ namespace test_app.ViewModel
     {
         private int choiseIndex;
         private int _step;
-        private int progressValue;
+        private ImageSource _sampleImg;
+        private int _progressValue;
+        private string _first;
+        private string _second;
+        private string _third;
+
 
         public int Step
         {
             get { return _step; }
-            set { _step = value; }
+        }
+
+        public ImageSource SampleImage
+        {
+            get { return _sampleImg; }
+        }
+
+        public string First
+        {
+            get { return _first; }
+        }
+
+        public string Second
+        {
+            get { return _second; }
+        }
+
+        public string Third
+        {
+            get { return _third; }
         }
 
         public int ProgressValue
         {
-            get { return progressValue; }
-            set { progressValue = value; }
+            get { return _progressValue; }
         }
-
-        private IList<RorschachTest> _rorschach = new List<RorschachTest>
-        {
-            new RorschachTest{ Step = "1", TestImage = "R1", FirstChoice="나비", SecondChoice="박쥐",ThirdChoice ="괴물"},
-            new RorschachTest{ Step = "2", TestImage = "R2", FirstChoice="곰", SecondChoice="핏자국",ThirdChoice ="불꽃"},
-            new RorschachTest{ Step = "3", TestImage = "R3", FirstChoice="춤추는 사람", SecondChoice="심장",ThirdChoice ="나비"},
-            new RorschachTest{ Step = "4", TestImage = "R4", FirstChoice="", SecondChoice="",ThirdChoice =""},
-            new RorschachTest{ Step = "5", TestImage = "R5", FirstChoice="", SecondChoice="",ThirdChoice =""},
-            new RorschachTest{ Step = "6", TestImage = "R6", FirstChoice="", SecondChoice="",ThirdChoice =""},
-            new RorschachTest{ Step = "7", TestImage = "R7", FirstChoice="", SecondChoice="",ThirdChoice =""},
-            new RorschachTest{ Step = "8", TestImage = "R8", FirstChoice="", SecondChoice="",ThirdChoice =""},
-            new RorschachTest{ Step = "9", TestImage = "R9", FirstChoice="", SecondChoice="",ThirdChoice =""},
-            new RorschachTest{ Step = "10", TestImage = "R0", FirstChoice="", SecondChoice="",ThirdChoice =""}
-        };
 
         [RelayCommand]
         async Task GoHome()
@@ -92,6 +101,15 @@ namespace test_app.ViewModel
 
         }
 
+        void SetValue(int step)
+        {
+            _step = RorschachTest.TestItems[step-1].Step;
+            _sampleImg = RorschachTest.TestItems[step - 1].SampleImage;
+            _first = RorschachTest.TestItems[step - 1].FirstChoice;
+            _second = RorschachTest.TestItems[step - 1].SecondChoice;
+            _third = RorschachTest.TestItems[step - 1].ThirdChoice;
+            _progressValue = _step * 10;
+        }
         async Task recodeSelection(int index)
         {
             // if(step ==4)

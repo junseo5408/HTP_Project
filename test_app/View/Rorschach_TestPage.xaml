@@ -40,7 +40,7 @@
 
                         <FlexLayout>
                             <Label Text= "Q"/>
-                            <Label Text="{Binding Step}"/>
+                            <Label Text=""/>
                             <Label Text=". 무엇이 떠오르시나요?"/>
                         </FlexLayout>
                         <Image HeightRequest="330"/>
