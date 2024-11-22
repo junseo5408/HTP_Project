@@ -7,54 +7,54 @@
              BackgroundColor="#F0F0F0"
              Shell.BackgroundColor="#F0F0F0"
              Title="HTP 테스트 결과">
-    <ScrollView>
+    
     <VerticalStackLayout>
-        <Image Source="person.png" 
+            <Image Source="person.png" 
                HeightRequest="130"
                Margin="0, 0, 0, -20"
                ZIndex="1"/>
 
-        <Border WidthRequest="360"
+            <Border WidthRequest="360"
                 BackgroundColor="White" 
                 StrokeThickness="0">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="20"/>
-            </Border.StrokeShape>
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
 
-            <StackLayout Margin="30">
-                <StackLayout>
-                    <Label Text="House"
+                <StackLayout Margin="30">
+                    <StackLayout>
+                        <Label Text="House"
                            FontAttributes="Bold"/>
-                    <Label Text="{Binding HouseMsg}"/>
-                </StackLayout>
+                        <Label Text="{Binding HouseMsg}"/>
+                    </StackLayout>
 
-                <Frame HeightRequest="1"
+                    <Frame HeightRequest="1"
                        BackgroundColor="Transparent"
                        BorderColor="Transparent"/>
 
-                <StackLayout>
-                    <Label Text="Tree"
+                    <StackLayout>
+                        <Label Text="Tree"
                            FontAttributes="Bold"/>
-                    <Label Text="{Binding TreeMsg}"/>
-                </StackLayout>
+                        <Label Text="{Binding TreeMsg}"/>
+                    </StackLayout>
 
-                <Frame HeightRequest="1"
+                    <Frame HeightRequest="1"
                        BackgroundColor="Transparent"
                        BorderColor="Transparent"/>
 
-                <StackLayout>
-                    <Label Text="Person"
+                    <StackLayout>
+                        <Label Text="Person"
                            FontAttributes="Bold"/>
-                    <Label Text="{Binding PersonMsg}"/>
-                </StackLayout>
+                        <Label Text="{Binding PersonMsg}"/>
+                    </StackLayout>
 
-                <Border HeightRequest="1" 
+                    <Border HeightRequest="1" 
                         BackgroundColor="LightGray"
                         Margin="0, 20"/>
 
-                <Label Text="{Binding OutputMsg}"/>
-            </StackLayout>
-        </Border>
+                    <Label Text="{Binding OutputMsg}"/>
+                </StackLayout>
+            </Border>
 
         <Button 
                 BackgroundColor="#4F7C2D" 
@@ -62,7 +62,5 @@
                 HeightRequest="55"
                 CornerRadius="20"
                 Margin="20"/>
-        
     </VerticalStackLayout>
-    </ScrollView>
 </ContentPage>

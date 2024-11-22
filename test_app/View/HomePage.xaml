@@ -22,7 +22,7 @@
 
             <ImageButton Command="{Binding GoHTPCommand}"
                              Source="banner1.png" 
-                             CornerRadius="20"/>
+                             CornerRadius="20" Aspect="Fill"/>
 
             <Frame BackgroundColor="Transparent"
                    BorderColor="Transparent" 
@@ -31,7 +31,7 @@
             <ImageButton Command="{Binding GoRorschachCommand}"
                              BackgroundColor="White"
                              Source="banner2.png"
-                             CornerRadius="20"/>
+                             CornerRadius="20" Aspect="AspectFill"/>
 
             <Frame BackgroundColor="Transparent"
                        BorderColor="Transparent"/>

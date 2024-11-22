@@ -11,6 +11,7 @@ namespace test_app
             Routing.RegisterRoute(nameof(Rorschach_StartPage), typeof(Rorschach_StartPage));
             Routing.RegisterRoute(nameof(HTP_ResultPage), typeof(HTP_ResultPage));
             Routing.RegisterRoute(nameof(LoadingPage), typeof(LoadingPage));
+            Routing.RegisterRoute(nameof(Rorschach_TestPage), typeof(Rorschach_TestPage));
             Routing.RegisterRoute(nameof(Rorschach_ResultPage), typeof(Rorschach_ResultPage));
 
             //Routing.RegisterRoute(nameof(CameraPage), typeof(CameraPage));

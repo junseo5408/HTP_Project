@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test_app.View.Rorschach_TestPage"
+             xmlns:viewmodel="clr-namespace:test_app.ViewModel"
+             x:DataType="viewmodel:Rorschach_ViewModel"
+             Title="로르샤흐 테스트"
+             Shell.BackgroundColor="#F0F0F0"
+             BackgroundColor="#F0F0F0">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0">
+                <FlexLayout HorizontalOptions="Center" AlignItems="Center">
+                    <Label Text="{Binding Step}"
+                       FontSize="30"
+                       FontAttributes="Bold"/>
+                    <Label Text="/10" 
+                       FontSize="15"
+                       TextColor="Grey"/>
+                </FlexLayout>
+
+            </StackLayout>
+
+            <Grid Grid.Row="2" Margin="20, 20, 20, 30">
+                <Border BackgroundColor="white"
+                    StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Margin="30,20,30,20">
+
+                        <ProgressBar Progress="{Binding ProgressValue}"
+                                     ProgressColor="#4F7C2D"
+                                     BackgroundColor="#7F4F7C2D"/>
+
+                        <FlexLayout>
+                            <Label Text= "Q"/>
+                            <Label Text="{Binding Step}"/>
+                            <Label Text=". 무엇이 떠오르시나요?"/>
+                        </FlexLayout>
+                        <Image HeightRequest="330"/>
+                        <Button  
+                            BackgroundColor="Grey" 
+                            Text="Binding Title"
+                            HeightRequest="50"
+                            CornerRadius="20"/>
+                        <Frame HeightRequest="10" BorderColor="Transparent"/>
+                        <Button  
+                            BackgroundColor="Grey" 
+                            Text="Binding Title"
+                            HeightRequest="50"
+                            CornerRadius="20"/>
+                        <Frame HeightRequest="10" BorderColor="Transparent"/>
+                        <Button  
+                            BackgroundColor="Grey" 
+                            Text="Binding Title"
+                            HeightRequest="50"
+                            CornerRadius="20"/>
+                        <Frame HeightRequest="10" BorderColor="Transparent"/>
+                        <Button  
+                            BackgroundColor="Grey" 
+                            Text="떠오르지 않음"
+                            HeightRequest="50"
+                            CornerRadius="20"/>
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>
+  

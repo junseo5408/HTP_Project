@@ -64,12 +64,6 @@ namespace test_app.ViewModel
         }
 
         [RelayCommand]
-        async Task GoCameraPage()
-        {
-            await Shell.Current.GoToAsync(nameof(CameraPage));
-        }
-
-        [RelayCommand]
         async Task OpenMediaPicker()
         {
             if (MediaPicker.Default.IsCaptureSupported)
