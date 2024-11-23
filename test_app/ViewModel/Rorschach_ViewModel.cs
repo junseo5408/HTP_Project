@@ -1,6 +1,7 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Diagnostics;
 using test_app.Model;
 using test_app.View;
 
@@ -9,43 +10,30 @@ namespace test_app.ViewModel
     public partial class Rorschach_ViewModel : ObservableObject
     {
         private int choiseIndex;
-        private int _step;
-        private ImageSource _sampleImg;
-        private int _progressValue;
-        private string _first;
-        private string _second;
-        private string _third;
+        OpenAIClient openAI;
+        private List<string> answers = new List<string>();
 
+        [ObservableProperty]
+        private int step;
 
-        public int Step
-        {
-            get { return _step; }
-        }
+        [ObservableProperty]
+        private ImageSource? sampleImage;
 
-        public ImageSource SampleImage
-        {
-            get { return _sampleImg; }
-        }
+        [ObservableProperty]
+        private string first;
 
-        public string First
-        {
-            get { return _first; }
-        }
+        [ObservableProperty]
+        private string second;
 
-        public string Second
-        {
-            get { return _second; }
-        }
+        [ObservableProperty]
+        private string third;
 
-        public string Third
-        {
-            get { return _third; }
-        }
+        [ObservableProperty]
+        private int progressValue;
 
-        public int ProgressValue
-        {
-            get { return _progressValue; }
-        }
+        [ObservableProperty]
+        private string result;
+
 
         [RelayCommand]
         async Task GoHome()
@@ -69,51 +57,103 @@ namespace test_app.ViewModel
         async Task StartTest()
         {
             await Shell.Current.GoToAsync(nameof(Rorschach_TestPage));
-
         }
 
         //테스트 답안버튼선택
         [RelayCommand]
         async Task FirstChoise()
         {
-            choiseIndex = 0;
+            await recodeSelection(First);
 
         }
 
         [RelayCommand]
         async Task SecondChoise()
         {
-            choiseIndex = 1;
+            await recodeSelection(Second);
 
         }
 
         [RelayCommand]
         async Task ThirdChoise()
         {
-            choiseIndex = 2;
+            await recodeSelection(Third);
 
         }
 
         [RelayCommand]
         async Task FourthChoise()
         {
-            choiseIndex = 3;
+            await recodeSelection("떠오르지 않음");
 
         }
 
-        void SetValue(int step)
+        public void SetValue(int index)
         {
-            _step = RorschachTest.TestItems[step-1].Step;
-            _sampleImg = RorschachTest.TestItems[step - 1].SampleImage;
-            _first = RorschachTest.TestItems[step - 1].FirstChoice;
-            _second = RorschachTest.TestItems[step - 1].SecondChoice;
-            _third = RorschachTest.TestItems[step - 1].ThirdChoice;
-            _progressValue = _step * 10;
+            Step = RorschachTest.TestItems[index].Step;
+            SampleImage = RorschachTest.TestItems[index].SampleImage;
+            First = RorschachTest.TestItems[index].FirstChoice;
+            Second = RorschachTest.TestItems[index].SecondChoice;
+            Third = RorschachTest.TestItems[index].ThirdChoice;
+            //ProgressValue = Step+1 * 10;
+            Debug.WriteLine($"Step: {Step}, First: {First}, Second: {Second}, Third: {Third}");
         }
-        async Task recodeSelection(int index)
+        async Task recodeSelection(string choise)
         {
-            // if(step ==4)
+            if (Step != 10)
+            {
+                answers.Add(choise);
+                SetValue(Step);
+            }
+            else if (Step == 10)
+            {
+                bool answer = await Application.Current.MainPage.DisplayAlert("진단을 시작해볼까요?", "수정이 필요하시면 아니요를 선택해주세요", "네", "아니오");
+                if (answer == true)
+                {
+                    //gpt 분석이동
+                    await ConvertToBase64();
+                    await getMsgAsync();
+                }
+                else
+                {
 
+                }
+            }
+        }
+
+        async Task getMsgAsync()
+        {
+            openAI = new OpenAIClient();
+            Result = await openAI.GetRorschachResultAsync(answers);
+
+            //await GoResultPage();
+        }
+
+        async Task ConvertToBase64()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                try
+                {
+                    using (var stream = await FileSystem.OpenAppPackageFileAsync("r{" + (i + 1) + "}.png"))
+                    using (MemoryStream memory = new MemoryStream())
+                    {
+                        // 파일 내용을 메모리 스트림으로 복사
+                        await stream.CopyToAsync(memory);
+
+                        // Base64로 변환
+                        byte[] bytes = memory.ToArray();
+                        string mimeType = "image/png";
+                        string dataUrl = $"data:{mimeType};base64,{Convert.ToBase64String(bytes)}";
+                        RorschachTest.SampleImagesUrl[i] = dataUrl;
+                        // 결과 페이지로 이동 (필요 시 추가 작업)
+                    }
+                }
+                catch (Exception ex)
+                {
+                    await Shell.Current.DisplayAlert("오류", $"로르샤흐 Base64 변환 중 문제가 발생했습니다: {ex.Message}", "확인");
+                }
+            }
         }
     }
 }

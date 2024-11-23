@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Maui;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using test_app.View;
 using test_app.ViewModel;
 using Syncfusion.Maui.Core.Hosting;
@@ -15,7 +14,6 @@ namespace test_app
             builder
                 .UseMauiApp<App>()
                 .ConfigureSyncfusionCore()
-                .UseMauiCommunityToolkitCamera()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

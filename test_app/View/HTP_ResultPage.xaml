@@ -7,8 +7,9 @@
              BackgroundColor="#F0F0F0"
              Shell.BackgroundColor="#F0F0F0"
              Title="HTP 테스트 결과">
-    
-    <VerticalStackLayout>
+
+    <ScrollView>
+        <VerticalStackLayout>
             <Image Source="person.png" 
                HeightRequest="130"
                Margin="0, 0, 0, -20"
@@ -56,11 +57,12 @@
                 </StackLayout>
             </Border>
 
-        <Button 
+            <Button 
                 BackgroundColor="#4F7C2D" 
                 Text="저장하기"
                 HeightRequest="55"
                 CornerRadius="20"
                 Margin="20"/>
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

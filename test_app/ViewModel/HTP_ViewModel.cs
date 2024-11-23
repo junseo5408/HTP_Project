@@ -177,7 +177,7 @@ namespace test_app.ViewModel
             string dataUrl = $"data:{mimeType};base64,{HTP_Data.base64String}";
 
             openAI = new OpenAIClient();
-            string all_msg = await openAI.GetImageDescriptionAsync(dataUrl);
+            string all_msg = await openAI.GetPictureDescriptionAsync(dataUrl);
             SetMiddleString(all_msg);
             //HTP_Data.isLoading = false;
             //HTP_Data.isResultOut = true;
