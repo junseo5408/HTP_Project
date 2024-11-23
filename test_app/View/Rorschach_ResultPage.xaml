@@ -20,6 +20,9 @@
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="20"/>
             </Border.StrokeShape>
+
+            <Label Text="{Binding Result}"
+                   Margin="30"/>
         </Border>
 
         <Frame HeightRequest="10" 
