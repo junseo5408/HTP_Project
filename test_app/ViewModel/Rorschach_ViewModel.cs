@@ -45,7 +45,12 @@ namespace test_app.ViewModel
         [RelayCommand]
         async Task GoHome()
         {
-            await Shell.Current.GoToAsync("..");
+            var stack = Shell.Current.Navigation.NavigationStack.ToArray();
+            for (int i = stack.Length - 1; i > 0; i--)
+            {
+                Shell.Current.Navigation.RemovePage(stack[i]);
+            }
+            await Shell.Current.GoToAsync("//HomePage");
         }
 
         [RelayCommand]
