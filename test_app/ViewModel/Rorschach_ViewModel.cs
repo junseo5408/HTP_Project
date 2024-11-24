@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Diagnostics;
+using System.Reflection;
 using test_app.Model;
 using test_app.View;
 
@@ -9,7 +10,6 @@ namespace test_app.ViewModel
 {
     public partial class Rorschach_ViewModel : ObservableObject
     {
-        private int choiseIndex;
         OpenAIClient openAI;
         private List<string> answers = new List<string>();
 
@@ -29,10 +29,17 @@ namespace test_app.ViewModel
         private string third;
 
         [ObservableProperty]
-        private int progressValue;
+        private string fourth;
 
         [ObservableProperty]
-        private string result;
+        private int progressValue;
+
+        private string _outputMsg = RorschachTest.ResultMsg;
+        public string OutputMsg
+        {
+            get { return _outputMsg; }
+            set { _outputMsg = value; }
+        }
 
 
         [RelayCommand]
@@ -47,7 +54,6 @@ namespace test_app.ViewModel
             await Shell.Current.GoToAsync(nameof(Rorschach_StartPage));
         }
 
-        [RelayCommand]
         async Task GoResultPage()
         {
             await Shell.Current.GoToAsync(nameof(Rorschach_ResultPage));
@@ -88,6 +94,11 @@ namespace test_app.ViewModel
 
         }
 
+        async Task OpenLoadingPage()
+        {
+            await Shell.Current.GoToAsync(nameof(LoadingPage));
+        }
+
         public void SetValue(int index)
         {
             Step = RorschachTest.TestItems[index].Step;
@@ -110,9 +121,13 @@ namespace test_app.ViewModel
                 bool answer = await Application.Current.MainPage.DisplayAlert("진단을 시작해볼까요?", "수정이 필요하시면 아니요를 선택해주세요", "네", "아니오");
                 if (answer == true)
                 {
+                    answers.Add(choise);
                     //gpt 분석이동
-                    await ConvertToBase64();
+                    await OpenLoadingPage();
+
                     await getMsgAsync();
+
+                    await GoResultPage();
                 }
                 else
                 {
@@ -124,36 +139,7 @@ namespace test_app.ViewModel
         async Task getMsgAsync()
         {
             openAI = new OpenAIClient();
-            Result = await openAI.GetRorschachResultAsync(answers);
-
-            //await GoResultPage();
-        }
-
-        async Task ConvertToBase64()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                try
-                {
-                    using (var stream = await FileSystem.OpenAppPackageFileAsync("r{" + (i + 1) + "}.png"))
-                    using (MemoryStream memory = new MemoryStream())
-                    {
-                        // 파일 내용을 메모리 스트림으로 복사
-                        await stream.CopyToAsync(memory);
-
-                        // Base64로 변환
-                        byte[] bytes = memory.ToArray();
-                        string mimeType = "image/png";
-                        string dataUrl = $"data:{mimeType};base64,{Convert.ToBase64String(bytes)}";
-                        RorschachTest.SampleImagesUrl[i] = dataUrl;
-                        // 결과 페이지로 이동 (필요 시 추가 작업)
-                    }
-                }
-                catch (Exception ex)
-                {
-                    await Shell.Current.DisplayAlert("오류", $"로르샤흐 Base64 변환 중 문제가 발생했습니다: {ex.Message}", "확인");
-                }
-            }
+            RorschachTest.ResultMsg = await openAI.GetRorschachResultAsync(answers);
         }
     }
 }

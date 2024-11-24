@@ -58,8 +58,11 @@ namespace test_app
         public async Task<string> GetRorschachResultAsync(List<string> values)
         {
             string prompt = "답변은 한국어로 이루어져야합니다.\r\n" +
-                "사용자가 보낸 로르샤흐검사 이미지와 이미지를 보고 어떤것이 떠오르는지의 답변을 토대로 검사결과를 알려줘.\r\n" +
-                "답변은 검사결과만 알려줘야하고 친절한 말투로 이루어져야되";
+                "공개된 로르샤흐 테스트의 잉크얼룩 순서대로 얼룩이 무엇과 닮았는지 답변을 하면 로르샤흐 검사에 따라 답변을 분석하여 검사결과를 알려주세요.\r\n" +
+                "답변은 검사결과에 대해서만 알려줘야하고 친절한 말투로 이루어져야하며 검사결과 외 의 답변은 나와서는 안됩니다.";
+
+            string answers = "1번: " + values[0] + "\r\n" + "2번: " + values[1] + "\r\n" + "3번: " + values[2] + "\r\n" + "4번: " + values[3] + "\r\n" + "5번: " + values[4] + "\r\n" + "6번: " + values[5] + "\r\n" +
+                "7번: " + values[6] + "\r\n" + "8번: " + values[7] + "\r\n" + "9번: " + values[8] + "\r\n" + "10번: " + values[9] + "\r\n";
 
             var chatClient = _openAIClient.GetChatClient(_deploymentName);
 
@@ -67,26 +70,7 @@ namespace test_app
             {
                 new UserChatMessage(
                     ChatMessageContentPart.CreateTextPart(prompt),
-                    ChatMessageContentPart.CreateImagePart(new Uri(RorschachTest.SampleImagesUrl[0]), "auto"),
-                    ChatMessageContentPart.CreateTextPart(values[0]),
-                    ChatMessageContentPart.CreateImagePart(new Uri(RorschachTest.SampleImagesUrl[1]), "auto"),
-                    ChatMessageContentPart.CreateTextPart(values[1]),
-                    ChatMessageContentPart.CreateImagePart(new Uri(RorschachTest.SampleImagesUrl[2]), "auto"),
-                    ChatMessageContentPart.CreateTextPart(values[2]),
-                    ChatMessageContentPart.CreateImagePart(new Uri(RorschachTest.SampleImagesUrl[3]), "auto"),
-                    ChatMessageContentPart.CreateTextPart(values[3]),
-                    ChatMessageContentPart.CreateImagePart(new Uri(RorschachTest.SampleImagesUrl[4]), "auto"),
-                    ChatMessageContentPart.CreateTextPart(values[4]),
-                    ChatMessageContentPart.CreateImagePart(new Uri(RorschachTest.SampleImagesUrl[5]), "auto"),
-                    ChatMessageContentPart.CreateTextPart(values[5]),
-                    ChatMessageContentPart.CreateImagePart(new Uri(RorschachTest.SampleImagesUrl[6]), "auto"),
-                    ChatMessageContentPart.CreateTextPart(values[6]),
-                    ChatMessageContentPart.CreateImagePart(new Uri(RorschachTest.SampleImagesUrl[7]), "auto"),
-                    ChatMessageContentPart.CreateTextPart(values[7]),
-                    ChatMessageContentPart.CreateImagePart(new Uri(RorschachTest.SampleImagesUrl[8]), "auto"),
-                    ChatMessageContentPart.CreateTextPart(values[8]),
-                    ChatMessageContentPart.CreateImagePart(new Uri(RorschachTest.SampleImagesUrl[9]), "auto"),
-                    ChatMessageContentPart.CreateTextPart(values[9]))
+                    ChatMessageContentPart.CreateTextPart(answers))
             };
 
             ChatCompletion chatCompletion = await chatClient.CompleteChatAsync(messages);

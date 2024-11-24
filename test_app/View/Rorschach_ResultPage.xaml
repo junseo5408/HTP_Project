@@ -21,7 +21,7 @@
                 <RoundRectangle CornerRadius="20"/>
             </Border.StrokeShape>
 
-            <Label Text="{Binding Result}"
+            <Label Text="{Binding OutputMsg}"
                    Margin="30"/>
         </Border>
 

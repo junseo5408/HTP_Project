@@ -22,6 +22,6 @@
             new RorschachTest{ Step = 10, SampleImage = "r10.png", FirstChoice="헤엄치는 해저동물들", SecondChoice="불가사리",ThirdChoice ="별"}
         };
 
-        public static string[] SampleImagesUrl;
+        public static string ResultMsg { get; set; }
     }
 }
