@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test_app.View.FiveWhysPage"
+             Title="              근본 원인 분석" 
+             Shell.BackgroundColor="#F0F0F0"
+             Background="#F0F0F0">
+    <VerticalStackLayout>
+        <StackLayout>
+            <Border BackgroundColor="White" Margin="20" StrokeThickness="0" >
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <StackLayout Margin="20">
+                    <Label Text="전체적으로 봤을 때, 그린이는 현재 정서적으로 안정감을 찾고자 하는 경향이 있으며, 내면의 갈등과 외로움을 느낄 수 있습니다." />
+                    <Label Text="나뭇잎이 없고 슬픈 표정을 통해 현재의 어려움을 극복하고자 하는 마음이 드러나 있습니다."/>
+                    <Label Text="이러한 요소들은 그린 이가 심리적 지지를 필요로 할 가능성을 나타냅니다."/>
+                </StackLayout>
+            </Border>
+        </StackLayout>
+        <StackLayout>
+            <Border BackgroundColor="#D2D2D3" StrokeThickness="0" Margin="70,0,120,0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Label Text="왜 이런 결과가 나온 것 같나요?" Margin="20" FontAttributes="Bold"/>
+            </Border>
+        </StackLayout>
+        <StackLayout>
+            <Image Source="person.png" HeightRequest="130" Margin="0,0,300,0"/>
+        </StackLayout>
+        <StackLayout>
+            <Border BackgroundColor="White" StrokeThickness="0" Margin="160,0,20,0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Label Text="요즘 과제가 너무 많아서 힘들어요" Margin="20" FontAttributes="Bold"/>
+            </Border>
+        </StackLayout>
+        <StackLayout>
+            <Frame BackgroundColor="#F0F0F0" BorderColor="#F0F0F0"/>
+        </StackLayout>
+        <StackLayout>
+            <Border BackgroundColor="#D2D2D3" StrokeThickness="0" Margin="30,0,270,0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Label Text="입력 중......" Margin="20" FontAttributes="Bold"/>
+            </Border>
+        </StackLayout>
+        <StackLayout>
+            <Frame BackgroundColor="#F0F0F0" BorderColor="#F0F0F0"/>
+        </StackLayout>
+        <StackLayout>
+            <Frame BackgroundColor="#F0F0F0" BorderColor="#F0F0F0"/>
+        </StackLayout>
+        <StackLayout>
+            <Border Background="#D9D9D9" StrokeThickness="0" Margin="20">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <Label Text="메세지를 입력하시오." Margin="15"/>
+            </Border>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>
+    

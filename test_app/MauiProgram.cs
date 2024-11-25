@@ -32,6 +32,8 @@ namespace test_app
             builder.Services.AddTransient<Rorschach_TestPage>();
             builder.Services.AddTransient<Rorschach_ResultPage>();
             builder.Services.AddTransient<Rorschach_ViewModel>();
+            builder.Services.AddTransient<LoginPage>();
+            builder.Services.AddTransient<FiveWhysPage>();
 
 
 
