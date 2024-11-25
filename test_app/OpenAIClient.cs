@@ -77,5 +77,24 @@ namespace test_app
 
             return chatCompletion.Content[0].Text;
         }
+
+        public async Task<string> Get5whysResultAsync(string msg)
+        {
+            string prompt = "";
+
+
+            var chatClient = _openAIClient.GetChatClient(_deploymentName);
+
+            List<ChatMessage> messages = new List<ChatMessage>
+            {
+                new UserChatMessage(
+                    ChatMessageContentPart.CreateTextPart(prompt),
+                    ChatMessageContentPart.CreateTextPart(msg))
+            };
+
+            ChatCompletion chatCompletion = await chatClient.CompleteChatAsync(messages);
+
+            return chatCompletion.Content[0].Text;
+        }
     }
 }
