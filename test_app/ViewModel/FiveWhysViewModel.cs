@@ -12,10 +12,12 @@ namespace test_app.ViewModel
     {
         private OpenAIClient openAI = new OpenAIClient();
         private int count = 1;
+
         private string _baseProblem;
         public string BaseProblem
         {
             get { return _baseProblem; }
+            set { _baseProblem = value; }
         }
 
         [ObservableProperty]
@@ -23,7 +25,6 @@ namespace test_app.ViewModel
 
         [ObservableProperty]
         private string message;
-
 
 
         [RelayCommand]
