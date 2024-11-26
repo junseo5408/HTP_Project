@@ -2,11 +2,51 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="test_app.View.LoginPage"
-             Title="LoginPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:viewmodel="clr-namespace:test_app.ViewModel"
+             x:DataType="viewmodel:LoginViewModel"
+             BackgroundColor="#F0F0F0"
+             Shell.BackgroundColor="#F0F0F0"
+             Title="">
+    <Grid>
+        <StackLayout HorizontalOptions="Center">
+            <Frame BackgroundColor="Transparent"
+                   BorderColor="Transparent"
+                   HeightRequest="50"/>
+
+            <Label Text="간단하고 빠르게 심리검사가 필요할때는"
+                   Margin="10"/>
+            <Image Source="logo1.png"
+                   HeightRequest="100"/>
+        </StackLayout>
+
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center" Margin="0,30,0,0">
+            <Label Text="환영합니다" FontSize="40"/>
+
+            <Frame BackgroundColor="Transparent"
+                   BorderColor="Transparent"
+                   HeightRequest="30"/>
+
+            <Label Text="다음으로 로그인하기"
+                   Margin="10"
+                   HorizontalOptions="Center"/>
+            
+            <ImageButton Source="google_logo.svg"
+                         Command="{Binding LoginGoogleCommand}"
+                         HorizontalOptions="Center"/>
+        </StackLayout>
+
+
+        <StackLayout VerticalOptions="End">
+            <Label Text="다음으로 회원가입하기"
+                   Margin="10"
+                   HorizontalOptions="Center"/>
+            <ImageButton Source="google_logo.svg" 
+                         HorizontalOptions="Center"/>
+
+            <Frame BackgroundColor="Transparent"
+                   BorderColor="Transparent"
+                   HeightRequest="30"/>
+        </StackLayout>
+    </Grid>
 </ContentPage>

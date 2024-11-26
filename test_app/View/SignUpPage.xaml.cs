@@ -2,9 +2,9 @@ using test_app.ViewModel;
 
 namespace test_app.View;
 
-public partial class LoginPage : ContentPage
+public partial class SignUpPage : ContentPage
 {
-	public LoginPage(LoginViewModel vm)
+	public SignUpPage(LoginViewModel vm)
 	{
 		InitializeComponent();
 

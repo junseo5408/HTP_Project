@@ -14,10 +14,16 @@ namespace test_app.ViewModel
         }
 
         [RelayCommand]
-        async Task GoRorschach() => await Shell.Current.GoToAsync(nameof(Rorschach_StartPage));
+        async Task GoRorschach()
+        {
+            await Shell.Current.GoToAsync(nameof(Rorschach_StartPage));
+        }
 
         [RelayCommand]
-        async Task GoTest() => await Shell.Current.GoToAsync(nameof(FiveWhysPage));
+        async Task GoTest()
+        {
+            await Shell.Current.GoToAsync(nameof(LoginPage));
+        }
 
     }
 }

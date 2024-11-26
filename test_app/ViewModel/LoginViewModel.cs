@@ -1,10 +1,23 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Diagnostics;
 
 namespace test_app.ViewModel
 {
     public partial class LoginViewModel : ObservableObject
     {
-        //DB구현, 로그인, 회원가입 구현 
-        //Login
+        OauthService oauthHelper = new OauthService();
+
+        [RelayCommand]
+        async Task LoginGoogle()
+        {
+            await getUserEmail();
+        }
+        //login
+        private async Task getUserEmail()
+        {
+            string userEmail = await oauthHelper.GetUserEmailAsync();
+            Debug.WriteLine(userEmail);
+        }
     }
 }
