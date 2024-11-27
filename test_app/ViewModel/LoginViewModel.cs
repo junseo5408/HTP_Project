@@ -8,33 +8,45 @@ namespace test_app.ViewModel
     public partial class LoginViewModel : ObservableObject
     {
         DataBaseConnect fireBase = new DataBaseConnect();
-        private bool isLoginSuccess;
+        private bool isUser;
         private bool isEmailCheck;
 
         [ObservableProperty]
         private string loginEmail;
 
         [ObservableProperty]
-        private string loginPassword;
+        private string loginPwd;
 
         [ObservableProperty]
-        private string suEmail;
+        private string regEmail;
 
         [ObservableProperty]
-        private string userName;
+        private string regPwd;
 
         [ObservableProperty]
-        private string suPassword;
+        private string regCheckPwd;
 
-        public static string testEmail;
+        [ObservableProperty]
+        private string regName;
+
 
         [RelayCommand]
-        async Task Login()
+        async Task Login_Clicked()
         {
-            isLoginSuccess = await fireBase.LoginCheck(LoginEmail, LoginPassword);
-            if (!isLoginSuccess) { }
-            //로그인완료
-            //await Shell.Current.Navigation.PushAsync(HomePage);
+            isUser = await fireBase.LoginCheck(LoginEmail, LoginPwd);
+            if (isUser)
+                await GoHome();
+            else await Application.Current.MainPage.DisplayAlert("로그인 실패", "이메일 또는 비밀번호를 확인해주세요", "확인");
+        }
+
+        async Task GoHome()
+        {
+            var stack = Shell.Current.Navigation.NavigationStack.ToArray();
+            for (int i = stack.Length - 1; i > 0; i--)
+            {
+                Shell.Current.Navigation.RemovePage(stack[i]);
+            }
+            await Shell.Current.GoToAsync("//HomePage");
         }
 
         [RelayCommand]
@@ -44,11 +56,14 @@ namespace test_app.ViewModel
         }
 
         [RelayCommand]
-        public void SignUp_Clicked()
+        public async Task SignUp_Clicked()
         {
-            //isEmailCheck = await fireBase.EmailCheck(SuEmail);
-            Debug.WriteLine($"email: {testEmail}, password: {suPassword}, name: {UserName}");
-            //if(isEmailCheck)
+            isEmailCheck = await fireBase.EmailCheck(RegEmail);
+            if (isEmailCheck)
+            {
+                await fireBase.Add_User(RegEmail, RegName, RegPwd);
+                await Application.Current.MainPage.DisplayAlert("환영합니다", "회원가입에 성공하셨습니다.", "확인");
+            }
         }
     }
 }

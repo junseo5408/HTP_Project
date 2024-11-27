@@ -30,14 +30,15 @@
                    HeightRequest="40"/>
 
             <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="250"
+                           Text="{Binding LoginEmail, Mode=TwoWay}"
                            Style="{DynamicResource OutlinedTextFieldStyle}"
-                           ActiveIndicatorColor="Transparent"
-                           
+                           ActiveIndicatorColor="Transparent"    
                            LabelFontColor="Gray"
                            SupportingText=""
                            LabelText="이메일" InputType="SingleLine"/>
 
             <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="250"
+                           Text="{Binding LoginPwd, Mode=TwoWay}"
                            Style="{DynamicResource OutlinedTextFieldStyle}"
                            ActiveIndicatorColor="Transparent"
                            LabelFontColor="Gray"
@@ -46,6 +47,7 @@
                            InputType="Password"/>
 
             <Button Text="로그인"
+                    Command="{Binding Login_ClickedCommand}"
                     BackgroundColor="#4F7C2D"/>
         </StackLayout>
 

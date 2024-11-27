@@ -8,28 +8,28 @@ namespace test_app.ViewModel
     {
 
         [RelayCommand]
-        async Task GoHTP()
+        void GoHTP()
         {
-            await Shell.Current.GoToAsync(nameof(HTP_StartPage));
+            Shell.Current.GoToAsync(nameof(HTP_StartPage));
         }
 
         [RelayCommand]
-        async Task GoRorschach()
+        void GoRorschach()
         {
-            await Shell.Current.GoToAsync(nameof(Rorschach_StartPage));
+            Shell.Current.GoToAsync(nameof(Rorschach_StartPage));
         }
 
         [RelayCommand]
-        async Task GoTest()
+        void GoTest()
         {
-            await Shell.Current.GoToAsync(nameof(LoginPage));
+            Shell.Current.GoToAsync(nameof(LoginPage));
         }
 
 
         [RelayCommand]
-        async Task GoTest2()
+        void GoTest2()
         {
-            await Shell.Current.GoToAsync(nameof(InfoPage));
+            Shell.Current.GoToAsync(nameof(InfoPage));
         }
 
     }

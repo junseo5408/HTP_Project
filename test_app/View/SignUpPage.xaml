@@ -7,67 +7,69 @@
              x:Class="test_app.View.SignUpPage"
              BackgroundColor="#F0F0F0"
              Shell.BackgroundColor="#F0F0F0">
-    
-    
 
-    
+
+
+
     <VerticalStackLayout>
         <Grid>
             <StackLayout HorizontalOptions="Center"
              VerticalOptions="Center" Margin="0,60,0,0">
-            <Label Text="이메일" FontSize="20" FontAttributes="Bold"/>
+                <Label Text="이메일" FontSize="20" FontAttributes="Bold"/>
 
-            <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="350"
+                <mdc:TextField Text="{Binding RegEmail, Mode=TwoWay}"
+                   BackgroundColor="#FFFFFF" WidthRequest="350"
                    Style="{DynamicResource OutlinedTextFieldStyle}"
                    ActiveIndicatorColor="Transparent"
-                   Text="{Binding RegEmail}"
                    LabelFontColor="Gray"
                    SupportingText=""
                    LabelText="이메일을 입력해주세요." InputType="SingleLine"/>
 
-            <Frame BackgroundColor="Transparent"
+                <Frame BackgroundColor="Transparent"
                    BorderColor="Transparent"
                    HeightRequest="0"/>
 
-            <Label Text="비밀번호" FontSize="20" FontAttributes="Bold"/>
+                <Label Text="비밀번호" FontSize="20" FontAttributes="Bold"/>
 
-            <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="350"
-                           Text="{Binding SuPassword}"
-                   Style="{DynamicResource OutlinedTextFieldStyle}"
-                   ActiveIndicatorColor="Transparent"
-                   LabelFontColor="Gray"
-                   SupportingText=""
-                   LabelText="비밀번호를 입력해주세요."
-                   InputType="Password"/>
-            <Frame BackgroundColor="Transparent"
+                <mdc:TextField Text="{Binding RegPwd, Mode=TwoWay}"
+                           BackgroundColor="#FFFFFF" 
+                           WidthRequest="350"
+                           Style="{DynamicResource OutlinedTextFieldStyle}"
+                           ActiveIndicatorColor="Transparent"
+                           LabelFontColor="Gray"
+                           SupportingText=""
+                           LabelText="비밀번호를 입력해주세요."
+                           InputType="Password"/>
+                <Frame BackgroundColor="Transparent"
                    BorderColor="Transparent"
                    HeightRequest="0"/>
 
-            <Label Text="비밀번호 확인" FontSize="20" FontAttributes="Bold"/>
+                <Label Text="비밀번호 확인" FontSize="20" FontAttributes="Bold"/>
 
-            <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="350"
-                           Text=""
-                   Style="{DynamicResource OutlinedTextFieldStyle}"
-                   ActiveIndicatorColor="Transparent"
-                   LabelFontColor="Gray"
-                   SupportingText=""
-                   LabelText=" 비밀번호를 다시 한번 입력해주세요."
-                   InputType="Password"/>
-            <Frame BackgroundColor="Transparent"
+                <mdc:TextField Text="{Binding RegCheckPwd, Mode=TwoWay}"
+                           BackgroundColor="#FFFFFF" WidthRequest="350"
+                           Style="{DynamicResource OutlinedTextFieldStyle}"
+                           ActiveIndicatorColor="Transparent"
+                           LabelFontColor="Gray"
+                           SupportingText=""
+                           LabelText=" 비밀번호를 다시 한번 입력해주세요."
+                           InputType="Password"/>
+
+                <Frame BackgroundColor="Transparent"
                    BorderColor="Transparent"
                    HeightRequest="0"/>
 
-            <Label Text="닉네임" FontSize="20" FontAttributes="Bold"/>
+                <Label Text="닉네임" FontSize="20" FontAttributes="Bold"/>
 
-            <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="350"
-                           Text="{Binding UserName}"
+                <mdc:TextField Text="{Binding RegName, Mode=TwoWay}"
+                   BackgroundColor="#FFFFFF" WidthRequest="350"
                    Style="{DynamicResource OutlinedTextFieldStyle}"
                    ActiveIndicatorColor="Transparent"
                    LabelFontColor="Gray"
                    SupportingText=""
                    LabelText="닉네임을 입력해주세요."
                    InputType="SingleLine"/>
-                
+
                 <Frame BackgroundColor="Transparent" 
                        BorderColor="Transparent"/>
 
@@ -77,7 +79,7 @@
                        BorderColor="Transparent"/>
 
                 <Button Text="회원가입 완료"
-                        Command="{Binding SignUp_ClickedCommand}"
+                       Command="{Binding SignUp_ClickedCommand}"
                        BackgroundColor="#4F7C2D"/>
             </StackLayout>
         </Grid>
