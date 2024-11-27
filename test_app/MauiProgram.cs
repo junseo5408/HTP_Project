@@ -2,6 +2,7 @@
 using test_app.View;
 using test_app.ViewModel;
 using Syncfusion.Maui.Core.Hosting;
+using Material.Components.Maui.Extensions;
 //using test_app.ViewModel;
 
 namespace test_app
@@ -13,6 +14,7 @@ namespace test_app
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMaterialComponents()
                 .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {

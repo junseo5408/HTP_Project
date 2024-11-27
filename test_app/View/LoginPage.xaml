@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="test_app.View.LoginPage"
              xmlns:viewmodel="clr-namespace:test_app.ViewModel"
+             xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
              x:DataType="viewmodel:LoginViewModel"
              BackgroundColor="#F0F0F0"
              Shell.BackgroundColor="#F0F0F0"
@@ -20,33 +21,40 @@
         </StackLayout>
 
         <StackLayout HorizontalOptions="Center"
-                     VerticalOptions="Center" Margin="0,30,0,0">
-            <Label Text="환영합니다" FontSize="40"/>
+                     VerticalOptions="Center" Margin="0,60,0,0">
+            <Label Text="환영합니다" FontSize="40" 
+                   HorizontalOptions="Center"/>
 
             <Frame BackgroundColor="Transparent"
                    BorderColor="Transparent"
-                   HeightRequest="30"/>
+                   HeightRequest="40"/>
 
-            <Label Text="다음으로 로그인하기"
-                   Margin="10"
-                   HorizontalOptions="Center"/>
-            
-            <ImageButton Source="google_logo.svg"
-                         Command="{Binding LoginGoogleCommand}"
-                         HorizontalOptions="Center"/>
+            <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="250"
+                           Style="{DynamicResource OutlinedTextFieldStyle}"
+                           ActiveIndicatorColor="Transparent"
+                           
+                           LabelFontColor="Gray"
+                           SupportingText=""
+                           LabelText="이메일" InputType="SingleLine"/>
+
+            <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="250"
+                           Style="{DynamicResource OutlinedTextFieldStyle}"
+                           ActiveIndicatorColor="Transparent"
+                           LabelFontColor="Gray"
+                           SupportingText=""
+                           LabelText="비밀번호"
+                           InputType="Password"/>
+
+            <Button Text="로그인"
+                    BackgroundColor="#4F7C2D"/>
         </StackLayout>
 
 
-        <StackLayout VerticalOptions="End">
-            <Label Text="다음으로 회원가입하기"
-                   Margin="10"
-                   HorizontalOptions="Center"/>
-            <ImageButton Source="google_logo.svg" 
-                         HorizontalOptions="Center"/>
-
-            <Frame BackgroundColor="Transparent"
-                   BorderColor="Transparent"
-                   HeightRequest="30"/>
-        </StackLayout>
+        <Button VerticalOptions="End"
+                HorizontalOptions="Center"
+                BackgroundColor="Transparent"
+                TextColor="Gray"
+                Margin="20"
+                Text="회원가입하기"/>
     </Grid>
 </ContentPage>
