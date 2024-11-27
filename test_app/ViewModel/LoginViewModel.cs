@@ -7,14 +7,21 @@ namespace test_app.ViewModel
 {
     public partial class LoginViewModel : ObservableObject
     {
+        DataBaseConnect fireBase = new DataBaseConnect();
+        private bool isLoginSuccess;
+        private bool isEmailCheck;
+
         [ObservableProperty]
-        private int loginEmail;
+        private string loginEmail;
 
         [ObservableProperty]
         private string loginPassword;
 
         [ObservableProperty]
-        private int suEmail;
+        private string suEmail;
+
+        [ObservableProperty]
+        private string userName;
 
         [ObservableProperty]
         private string suPassword;
@@ -22,10 +29,10 @@ namespace test_app.ViewModel
         [RelayCommand]
         async Task Login()
         {
-            //DB 연결후 이메일 비밀번호 비교
-            //만약없으면 알림 
-
-
+            isLoginSuccess = await fireBase.LoginCheck(LoginEmail, LoginPassword);
+            if (!isLoginSuccess) { }
+            //로그인완료
+            //await Shell.Current.Navigation.PushAsync(HomePage);
         }
 
         [RelayCommand]
@@ -35,9 +42,10 @@ namespace test_app.ViewModel
         }
 
         [RelayCommand]
-        void SignUp_Clicked()
+        async Task SignUp_Clicked()
         {
-            //수정
+            isEmailCheck = await fireBase.EmailCheck(SuEmail);
+            if(isEmailCheck)
         }
     }
 }
