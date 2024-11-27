@@ -26,6 +26,8 @@ namespace test_app.ViewModel
         [ObservableProperty]
         private string suPassword;
 
+        public static string testEmail;
+
         [RelayCommand]
         async Task Login()
         {
@@ -42,9 +44,10 @@ namespace test_app.ViewModel
         }
 
         [RelayCommand]
-        async Task SignUp_Clicked()
+        public void SignUp_Clicked()
         {
-            isEmailCheck = await fireBase.EmailCheck(SuEmail);
+            //isEmailCheck = await fireBase.EmailCheck(SuEmail);
+            Debug.WriteLine($"email: {testEmail}, password: {suPassword}, name: {UserName}");
             //if(isEmailCheck)
         }
     }

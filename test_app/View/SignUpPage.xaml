@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:test_app.ViewModel"
+             x:DataType="viewmodel:LoginViewModel"
              xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
              x:Class="test_app.View.SignUpPage"
              BackgroundColor="#F0F0F0"
@@ -18,7 +20,7 @@
             <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="350"
                    Style="{DynamicResource OutlinedTextFieldStyle}"
                    ActiveIndicatorColor="Transparent"
-                   
+                   Text="{Binding RegEmail}"
                    LabelFontColor="Gray"
                    SupportingText=""
                    LabelText="이메일을 입력해주세요." InputType="SingleLine"/>
@@ -30,6 +32,7 @@
             <Label Text="비밀번호" FontSize="20" FontAttributes="Bold"/>
 
             <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="350"
+                           Text="{Binding SuPassword}"
                    Style="{DynamicResource OutlinedTextFieldStyle}"
                    ActiveIndicatorColor="Transparent"
                    LabelFontColor="Gray"
@@ -43,6 +46,7 @@
             <Label Text="비밀번호 확인" FontSize="20" FontAttributes="Bold"/>
 
             <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="350"
+                           Text=""
                    Style="{DynamicResource OutlinedTextFieldStyle}"
                    ActiveIndicatorColor="Transparent"
                    LabelFontColor="Gray"
@@ -56,6 +60,7 @@
             <Label Text="닉네임" FontSize="20" FontAttributes="Bold"/>
 
             <mdc:TextField BackgroundColor="#FFFFFF" WidthRequest="350"
+                           Text="{Binding UserName}"
                    Style="{DynamicResource OutlinedTextFieldStyle}"
                    ActiveIndicatorColor="Transparent"
                    LabelFontColor="Gray"
@@ -72,8 +77,8 @@
                        BorderColor="Transparent"/>
 
                 <Button Text="회원가입 완료"
-                       BackgroundColor="#4F7C2D"
-                        />
+                        Command="{Binding SignUp_ClickedCommand}"
+                       BackgroundColor="#4F7C2D"/>
             </StackLayout>
         </Grid>
     </VerticalStackLayout>

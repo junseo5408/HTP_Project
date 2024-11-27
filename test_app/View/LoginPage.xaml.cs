@@ -15,4 +15,9 @@ public partial class LoginPage : ContentPage
             IsVisible = false
         });
     }
+
+    private void EmailField_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        LoginViewModel.testEmail = EmailField.Text;
+    }
 }
