@@ -45,7 +45,7 @@ namespace test_app.ViewModel
         async Task SignUp_Clicked()
         {
             isEmailCheck = await fireBase.EmailCheck(SuEmail);
-            if(isEmailCheck)
+            //if(isEmailCheck)
         }
     }
 }
