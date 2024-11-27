@@ -33,7 +33,7 @@ namespace test_app.ViewModel
             if (message != null)
             {
                 qnAmessages.Add(message);
-                getMsgAsync(message);
+                await getMsgAsync(message);
             }
         }
 

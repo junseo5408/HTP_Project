@@ -75,6 +75,13 @@
 	  <None Remove="Resources\Images\text_img1.png" />
 	  <None Remove="Resources\Images\text_img2.png" />
 	  <None Remove="Resources\Images\turn_off.png" />
+	  <None Remove="team-npu-firebase-adminsdk-47z6i-de259c450c.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="team-npu-firebase-adminsdk-47z6i-de259c450c.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -82,6 +89,7 @@
 		<PackageReference Include="Azure.Identity" Version="1.13.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="DialogDimensions.OpenAiSpeechService" Version="1.1.4" />
+		<PackageReference Include="Google.Cloud.Firestore" Version="3.9.0" />
 		<PackageReference Include="Material.Components.Maui" Version="0.2.2-preview" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />

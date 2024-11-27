@@ -55,6 +55,7 @@
                 BackgroundColor="Transparent"
                 TextColor="Gray"
                 Margin="20"
+                Command="{Binding SignUpCommand}"
                 Text="회원가입하기"/>
     </Grid>
 </ContentPage>
