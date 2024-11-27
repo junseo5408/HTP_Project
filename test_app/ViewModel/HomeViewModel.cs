@@ -25,5 +25,12 @@ namespace test_app.ViewModel
             await Shell.Current.GoToAsync(nameof(LoginPage));
         }
 
+
+        [RelayCommand]
+        async Task GoTest2()
+        {
+            await Shell.Current.GoToAsync(nameof(InfoPage));
+        }
+
     }
 }

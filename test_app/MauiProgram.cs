@@ -39,7 +39,7 @@ namespace test_app
             builder.Services.AddTransient<LoginPage>();
             builder.Services.AddTransient<SignUpPage>();
             builder.Services.AddTransient<LoginViewModel>();
-
+            builder.Services.AddTransient<InfoPage>();
 
 
 #if DEBUG

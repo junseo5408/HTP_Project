@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test_app.View.InfoPage"
+             >
+    <VerticalStackLayout>
+        <Grid>
+            <StackLayout>
+                <Image Source="logo1.png" HeightRequest="70"/>
+                <Frame BackgroundColor="Transparent"
+                       BorderColor="Transparent"/>
+
+                <Frame BackgroundColor="Transparent"
+                       BorderColor="Transparent"/>
+                <StackLayout>
+                    <Label Text="Developer" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label Text="황준서"  HorizontalOptions="Center"/>
+                    <Label Text="ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ" HorizontalOptions="Center"/>
+                    <Label Text="UI/UX Designer" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Image Source="leephoto.png" HeightRequest="200" BackgroundColor="Transparent"/>
+                    <Label Text="이지훈"  HorizontalOptions="Center"/>
+                    <Label Text="ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ" HorizontalOptions="Center"/>
+                    <Label Text="Xaml Designer" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Image Source="sinphoto.png" HeightRequest="200" BackgroundColor="Transparent"/>
+                    <Label Text="신승호"  HorizontalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

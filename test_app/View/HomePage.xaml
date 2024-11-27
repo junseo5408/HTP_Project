@@ -35,6 +35,9 @@
             <Button Command="{Binding GoTestCommand}"
                     Text="Test"/>
 
+            <Button Command="{Binding GoTest2Command}"
+                    Text="Test2"/>
+
             <Frame BackgroundColor="Transparent"
                        BorderColor="Transparent"/>
         </VerticalStackLayout>
