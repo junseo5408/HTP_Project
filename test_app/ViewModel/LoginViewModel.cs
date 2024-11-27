@@ -37,7 +37,7 @@ namespace test_app.ViewModel
         [RelayCommand]
         void SignUp_Clicked()
         {
-
+            //수정
         }
     }
 }
