@@ -43,11 +43,7 @@ namespace test_app.ViewModel
         [RelayCommand]
         async Task GoHome()
         {
-            var stack = Shell.Current.Navigation.NavigationStack.ToArray();
-            for (int i = stack.Length - 1; i > 0; i--)
-            {
-                Shell.Current.Navigation.RemovePage(stack[i]);
-            }
+            RemovePage();
             await Shell.Current.GoToAsync("//HomePage");
         }
 
@@ -102,6 +98,15 @@ namespace test_app.ViewModel
             await Shell.Current.GoToAsync(nameof(LoadingPage));
         }
 
+        private void RemovePage()
+        {
+            var stack = Shell.Current.Navigation.NavigationStack.ToArray();
+            for (int i = stack.Length - 1; i > 0; i--)
+            {
+                Shell.Current.Navigation.RemovePage(stack[i]);
+            }
+        }
+
         public void SetValue(int index)
         {
             Step = RorschachTest.TestItems[index].Step;
@@ -143,6 +148,7 @@ namespace test_app.ViewModel
         {
             openAI = new OpenAIClient();
             RorschachTest.ResultMsg = await openAI.GetRorschachResultAsync(answers);
+            RemovePage();
         }
     }
 }

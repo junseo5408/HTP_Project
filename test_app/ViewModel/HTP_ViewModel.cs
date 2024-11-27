@@ -45,26 +45,10 @@ namespace test_app.ViewModel
             set { _personMsg = value; }
         }
 
-        //public bool ResultOut
-        //{
-        //    get { return _resultOut; }
-        //    set { _resultOut = value; }
-        //}
-
-        //public bool isLoading
-        //{
-        //    get { return _isLoading; }
-        //    set { _isLoading = value; }
-        //}
-
         [RelayCommand]
         async Task GoHome()
         {
-            var stack = Shell.Current.Navigation.NavigationStack.ToArray();
-            for (int i = stack.Length - 1; i > 0; i--)
-            {
-                Shell.Current.Navigation.RemovePage(stack[i]);
-            }
+            RemovePage();
             await Shell.Current.GoToAsync("//HomePage");
         }
 
@@ -77,19 +61,15 @@ namespace test_app.ViewModel
 
                 if (myPhoto != null)
                 {
-                    // 로컬 파일 경로 설정
-                    string localFilePath = System.IO.Path.Combine(FileSystem.CacheDirectory, myPhoto.FileName);
-
+                    string localFilePath = Path.Combine(FileSystem.CacheDirectory, myPhoto.FileName);
                     try
                     {
-                        // 원본 이미지를 로컬 저장소에 저장
                         using (Stream sourceStream = await myPhoto.OpenReadAsync())
                         using (FileStream localFileStream = new FileStream(localFilePath, FileMode.Create, FileAccess.Write, FileShare.None))
                         {
                             await sourceStream.CopyToAsync(localFileStream);
                         }
 
-                        // Base64 변환 및 추가 작업
                         await OpenLoadingPage();
                         await ConvertToBase64(ResizeImage(localFilePath, localFilePath, 800, 600));
                     }
@@ -116,19 +96,15 @@ namespace test_app.ViewModel
 
                 if (photo != null)
                 {
-                    // 로컬 파일 경로 설정
-                    string localFilePath = System.IO.Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+                    string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
 
                     try
                     {
-                        // 파일을 로컬로 저장
                         using (Stream sourceStream = await photo.OpenReadAsync())
                         using (FileStream localFileStream = new FileStream(localFilePath, FileMode.Create, FileAccess.Write, FileShare.None))
                         {
                             await sourceStream.CopyToAsync(localFileStream);
                         }
-
-                        // 저장된 파일을 Base64로 변환
                         await OpenLoadingPage();
                         await ConvertToBase64(ResizeImage(localFilePath, localFilePath, 700, 500));
                     }
@@ -192,6 +168,7 @@ namespace test_app.ViewModel
         async Task GoResultPage()
         {
             await Shell.Current.GoToAsync(nameof(HTP_ResultPage));
+            RemovePage();
         }
 
         async Task OpenLoadingPage()
@@ -213,7 +190,16 @@ namespace test_app.ViewModel
             return outputPath;
         }
 
-        //텍스트 불리 메서드
+        private void RemovePage()
+        {
+            var stack = Shell.Current.Navigation.NavigationStack.ToArray();
+            for (int i = stack.Length - 1; i > 0; i--)
+            {
+                Shell.Current.Navigation.RemovePage(stack[i]);
+            }
+        }
+
+        //텍스트 분리
         private void SetMiddleString(string str)
         {
             string a1 = "1a";
@@ -229,7 +215,7 @@ namespace test_app.ViewModel
             // 유효성 검증
             if (string.IsNullOrEmpty(str))
             {
-                Console.WriteLine("입력 문자열이 비어있습니다.");
+                //Console.WriteLine("입력 문자열이 비어있습니다.");
                 return;
             }
 
