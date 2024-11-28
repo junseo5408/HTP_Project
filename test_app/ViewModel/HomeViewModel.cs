@@ -1,12 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using test_app.Model;
 using test_app.View;
 
 namespace test_app.ViewModel
 {
     public partial class HomeViewModel : ObservableObject
     {
-
         [RelayCommand]
         void GoHTP()
         {
@@ -31,6 +31,5 @@ namespace test_app.ViewModel
         {
             Shell.Current.GoToAsync(nameof(InfoPage));
         }
-
     }
 }

@@ -105,9 +105,6 @@
 	  <MauiAsset Include="Resources\team-npu-firebase-adminsdk-47z6i-de259c450c.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </MauiAsset>
-	  <MauiAsset Include="test_fb.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </MauiAsset>
 	</ItemGroup>
 
 	<ItemGroup>

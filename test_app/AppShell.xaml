@@ -11,6 +11,7 @@
     TabBarUnselectedColor="Gray"
     TabBarTitleColor="Green">
 
+    <ShellContent Title="" Route="LoginPage" ContentTemplate="{DataTemplate view:LoginPage}" Shell.TabBarIsVisible="False"/>
 
     <TabBar>
         <ShellContent

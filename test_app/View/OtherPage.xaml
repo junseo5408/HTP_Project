@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:test_app.ViewModel"
+             x:DataType="viewmodel:OtherViewModel"
              x:Class="test_app.View.OtherPage" 
              Title="" BackgroundColor="#F0F0F0">
 
@@ -42,8 +44,8 @@
                             </Frame>
 
                             <StackLayout VerticalOptions="Center">
-                                <Label Text="username" FontSize="30" FontAttributes="Bold"/>
-                                <Label Text="user@mail.com" FontSize="15" TextColor="LightGray"/>
+                                <Label Text="{Binding Name,Mode=OneWay}" FontSize="30" FontAttributes="Bold"/>
+                                <Label Text="{Binding Email, Mode=OneWay}" FontSize="15" TextColor="LightGray"/>
                             </StackLayout>
                         </FlexLayout>
                         <Image Source="right_arrow"
@@ -198,7 +200,7 @@
                                HeightRequest="20"
                                Aspect="AspectFill"/>
                         </Frame>
-                        <Label Text="탈퇴하기" FontSize="18"/>
+                        <Label Text="로그아웃" FontSize="18"/>
                     </FlexLayout>
                 </Border>
             </StackLayout>

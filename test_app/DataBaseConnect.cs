@@ -1,12 +1,6 @@
-﻿using Google.Apis.Auth.OAuth2;
-using Google.Cloud.Firestore;
+﻿using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
-using Grpc.Auth;
-using Microsoft.Maui.ApplicationModel.Communication;
-using Microsoft.VisualBasic;
-using System.ComponentModel;
 using System.Diagnostics;
-using test_app.Model;
 using FileSystem = Microsoft.Maui.Storage.FileSystem;
 
 
@@ -16,76 +10,6 @@ namespace test_app
     {
         private FirestoreDb db;
         private string jsonName = "team-npu-firebase-adminsdk-47z6i-de259c450c.json";
-
-        private void CopyFirebaseJson()
-        {
-            string destinationPath = Path.Combine(FileSystem.AppDataDirectory, jsonName);
-
-            // 이미 파일이 복사되었는지 확인
-            if (!File.Exists(destinationPath))
-            {
-                using var inputStream = FileSystem.OpenAppPackageFileAsync(jsonName).Result;
-                using var outputStream = File.Create(destinationPath);
-                inputStream.CopyTo(outputStream);
-            }
-        }
-
-
-        private async Task ConnectDB()
-        {
-            CopyFirebaseJson();
-
-            // 경로 확인
-            string jsonFilePath = Path.Combine(FileSystem.AppDataDirectory, jsonName);
-            Console.WriteLine($"JSON File Path: {jsonFilePath}");
-
-            if (!File.Exists(jsonFilePath))
-            {
-                throw new FileNotFoundException($"Credential file not found: {jsonFilePath}");
-            }
-
-            // Credential 생성
-            GoogleCredential credential;
-            try
-            {
-                credential = GoogleCredential.FromFile(jsonFilePath);
-                Console.WriteLine("Credential successfully loaded.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error loading credential: {ex.Message}");
-                throw;
-            }
-
-            // FirestoreClient 생성
-            FirestoreClient firestoreClient;
-            try
-            {
-                firestoreClient = new FirestoreClientBuilder
-                {
-                    ChannelCredentials = credential.ToChannelCredentials()
-                }.Build();
-                Console.WriteLine("FirestoreClient successfully created.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error creating FirestoreClient: {ex.Message}");
-                throw;
-            }
-
-            // FirestoreDb 생성
-            try
-            {
-                db = FirestoreDb.Create("team-npu", firestoreClient);
-                Console.WriteLine("FirestoreDb successfully created.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error creating FirestoreDb: {ex.Message}");
-                throw;
-            }
-        }
-
 
         private async Task initFirestore()
         {
@@ -132,6 +56,10 @@ namespace test_app
                     foreach (var field in docsnap.ToDictionary())
                     {
                         Debug.WriteLine($"Field: {field.Key}, Value: {field.Value}");
+                        if (field.Key == "Email")
+                            Model.UserData.Email = field.Value.ToString();
+                        else if(field.Key == "UserName")
+                            Model.UserData.Name = field.Value.ToString();
                     }
                 }
                 return true;

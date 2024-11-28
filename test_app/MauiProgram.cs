@@ -40,6 +40,9 @@ namespace test_app
             builder.Services.AddTransient<SignUpPage>();
             builder.Services.AddTransient<LoginViewModel>();
             builder.Services.AddTransient<InfoPage>();
+            builder.Services.AddTransient<OtherPage>();
+            builder.Services.AddTransient<OtherViewModel>();
+
 
 
 #if DEBUG
