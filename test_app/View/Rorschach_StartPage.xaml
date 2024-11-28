@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="test_app.View.Rorschach_StartPage"
              xmlns:viewmodel="clr-namespace:test_app.ViewModel"
-             x:DataType="viewmodel:Rorschach_ViewModel"             
+             x:DataType="viewmodel:Rorschach_ViewModel"    
+             Shell.TabBarIsVisible="False"
              Title="로르샤흐 테스트" 
              BackgroundColor="#F0F0F0"
              Shell.BackgroundColor="#F0F0F0">

@@ -6,9 +6,8 @@
              xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
              x:Class="test_app.View.SignUpPage"
              BackgroundColor="#F0F0F0"
+             Shell.TabBarIsVisible="False"
              Shell.BackgroundColor="#F0F0F0">
-
-
 
 
     <VerticalStackLayout>

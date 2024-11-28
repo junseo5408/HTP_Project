@@ -5,6 +5,7 @@
              xmlns:viewmodel="clr-namespace:test_app.ViewModel"
              x:DataType="viewmodel:Rorschach_ViewModel"         
              Title="로르샤흐 테스트 결과"
+             Shell.TabBarIsVisible="False"
              Shell.BackgroundColor="#F0F0F0"
              BackgroundColor="#F0F0F0">
     <VerticalStackLayout Margin="20, 0, 20, 0">

@@ -6,7 +6,8 @@
              x:DataType="viewmodel:HTP_ViewModel"
              Title="HTP 테스트"
              BackgroundColor="#F0F0F0"
-             Shell.BackgroundColor="#F0F0F0">
+             Shell.BackgroundColor="#F0F0F0"
+             Shell.TabBarIsVisible="False">
 
     <VerticalStackLayout>
         <Frame HeightRequest="50" 

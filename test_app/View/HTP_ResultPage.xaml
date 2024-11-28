@@ -5,6 +5,7 @@
              xmlns:viewmodel="clr-namespace:test_app.ViewModel"
              x:DataType="viewmodel:HTP_ViewModel"
              BackgroundColor="#F0F0F0"
+             Shell.TabBarIsVisible="False"
              Shell.BackgroundColor="#F0F0F0"
              Title="HTP 테스트 결과">
 

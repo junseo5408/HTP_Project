@@ -4,6 +4,7 @@
              x:Class="test_app.View.Rorschach_TestPage"
              xmlns:viewmodel="clr-namespace:test_app.ViewModel"
              x:DataType="viewmodel:Rorschach_ViewModel"
+             Shell.TabBarIsVisible="False"
              Title="로르샤흐 테스트"
              Shell.BackgroundColor="#F0F0F0"
              BackgroundColor="#F0F0F0">
@@ -46,38 +47,31 @@
                         <FlexLayout HeightRequest="330">
                             <Image Source="{Binding SampleImage}"/>
                         </FlexLayout>
-                        <!--<Grid HeightRequest="330">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="15" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="15" />
-                            </Grid.ColumnDefinitions>
-                            <ImageButton VerticalOptions="Center"
-                                         HorizontalOptions="Center"
-                                         Source="back"/>
 
-                            <Image HeightRequest="100" 
-                                   Grid.Column="1"
-                                   Source="{Binding SampleImage}"/>
-                        </Grid>-->
                         <Button Command="{Binding FirstChoiseCommand}"
                             BackgroundColor="Grey" 
                             Text="{Binding First}"
                             HeightRequest="50"
                             CornerRadius="20"/>
-                        <Frame HeightRequest="10" BorderColor="Transparent"/>
+                        <Frame HeightRequest="10" 
+                               BackgroundColor="Transparent"
+                               BorderColor="Transparent"/>
                         <Button  Command="{Binding SecondChoiseCommand}"
                             BackgroundColor="Grey" 
                             Text="{Binding Second}"
                             HeightRequest="50"
                             CornerRadius="20"/>
-                        <Frame HeightRequest="10" BorderColor="Transparent"/>
+                        <Frame HeightRequest="10" 
+                               BackgroundColor="Transparent"
+                               BorderColor="Transparent"/>
                         <Button Command="{Binding ThirdChoiseCommand}"
                             BackgroundColor="Grey" 
                             Text="{Binding Third}"
                             HeightRequest="50"
                             CornerRadius="20"/>
-                        <Frame HeightRequest="10" BorderColor="Transparent"/>
+                        <Frame HeightRequest="10" 
+                               BackgroundColor="Transparent"
+                               BorderColor="Transparent"/>
                         <Button Command="{Binding FourthChoiseCommand}"
                             BackgroundColor="Grey" 
                             Text="떠오르지 않음"
