@@ -1,6 +1,7 @@
 ﻿using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
 using System.Diagnostics;
+using test_app.Model;
 using FileSystem = Microsoft.Maui.Storage.FileSystem;
 
 
@@ -28,7 +29,34 @@ namespace test_app
             }
         }
 
+        public async Task Add_HTP_Result(string h, string t, string p, string result)
+        {
+            await initFirestore();
+            DocumentReference ADMIN = db.Collection("HTP_Result").Document();
+            Dictionary<string, object> datal = new Dictionary<string, object>()
+            {
+                {"DateTime", DateTime.Now.Year},
+                {"House", h},
+                {"Person", p},
+                {"Result", result},
+                {"Tree", t},
+                {"UserEmail", Model.UserData.Email}
+            };
+            await ADMIN.SetAsync(datal);
+        }
 
+        public async Task Add_RorResult(string result)
+        {
+            await initFirestore();
+            DocumentReference ADMIN = db.Collection("Rorschach_Result").Document();
+            Dictionary<string, object> datal = new Dictionary<string, object>()
+            {
+                {"DateTime", DateTime.Now.Year},
+                {"Result", result},
+                {"UserEmail", Model.UserData.Email}
+            };
+            await ADMIN.SetAsync(datal);
+        }
 
         public async Task Add_User(string email, string username, string pwd)
         {
@@ -63,8 +91,67 @@ namespace test_app
                     }
                 }
                 return true;
+                await LoadHTP_Data();
+                await LoadRorData();
             }
             else return false;
+        }
+
+        public async Task LoadHTP_Data()
+        {
+            List<FirebaseProperty.HTP_Property> htpList = new List<FirebaseProperty.HTP_Property>();
+            try
+            {
+                await initFirestore();
+                Query qref = db.Collection("HTP_Result").WhereEqualTo("UserEmail", Model.UserData.Email);
+                QuerySnapshot snap = await qref.GetSnapshotAsync();
+
+                if (snap.Count > 0)
+                {
+                    foreach (DocumentSnapshot doc in snap.Documents)
+                    {
+                        if (doc.Exists)
+                        {
+                            FirebaseProperty.HTP_Property data = doc.ConvertTo<FirebaseProperty.HTP_Property>();
+                            htpList.Add(data);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                await Application.Current.MainPage.DisplayAlert("경고", "HTP데이터 불러오기 실패.", "확인");
+            }
+            Model.HTP_Data.Htp_List = htpList;
+        }
+
+
+        public async Task LoadRorData()
+        {
+            List<FirebaseProperty.Ror_Property> htpList = new List<FirebaseProperty.Ror_Property>();
+            try
+            {
+                await initFirestore();
+                Query qref = db.Collection("Rorschach_Result").WhereEqualTo("UserEmail", Model.UserData.Email);
+                QuerySnapshot snap = await qref.GetSnapshotAsync();
+
+                if (snap.Count > 0)
+                {
+                    foreach (DocumentSnapshot doc in snap.Documents)
+                    {
+                        if (doc.Exists)
+                        {
+                            FirebaseProperty.Ror_Property data = doc.ConvertTo<FirebaseProperty.Ror_Property>();
+                            htpList.Add(data);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                await Application.Current.MainPage.DisplayAlert("경고", "로르샤흐데이터 불러오기 실패.", "확인");
+            }
+            Model.RorschachTest.Ror_List = htpList;
         }
 
         public async Task<bool> EmailCheck(string email)

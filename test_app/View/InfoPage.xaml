@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="test_app.View.InfoPage"
+             x:Class="test_app.View.InfoPage" BackgroundColor="#F0F0F0"
              >
     <VerticalStackLayout>
         <Grid>
@@ -28,3 +28,114 @@
         </Grid>
     </VerticalStackLayout>
 </ContentPage>
+
+
+
+
+<!--<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test_app.View.InfoPage" BackgroundColor="#F0F0F0">
+
+    <ScrollView>
+        <StackLayout Margin="20">
+            <Image Source="logo1.png" HeightRequest="70"
+                       Margin="20"/>
+
+            <Border BackgroundColor="White" StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+
+                <StackLayout>
+
+                </StackLayout>
+
+            </Border>
+
+            <Border BackgroundColor="White" StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20"/>
+                </Border.StrokeShape>
+                <StackLayout>
+                    <Label Text="팀원 소개" Margin="20" 
+                               HorizontalOptions="Center"
+                               FontSize="30"/>
+                    <Border StrokeThickness="0">
+                        <FlexLayout Margin="20,0,20,20">
+                            <Frame CornerRadius="40" 
+                               HeightRequest="80" BorderColor="Transparent"
+                               WidthRequest="80" Margin="0,0,10,0">
+
+                                <Image Source="profile_img.jpg"
+                                   Aspect="AspectFill"
+                                   HeightRequest="80" 
+                                   WidthRequest="80"/>
+                            </Frame>
+
+                            <StackLayout>
+                                <Label Text="황준서" FontSize="30" FontAttributes="Bold"/>
+                                <Label Text=" 202217639" FontSize="15" TextColor="LightGray"/>
+                                <Label Text=" Developer (C# · DB · MS Azure)" FontSize="15" TextColor="LightGray"/>
+                            </StackLayout>
+                        </FlexLayout>
+                    </Border>
+
+                    <Border StrokeThickness="0">
+                        <FlexLayout Margin="20">
+                            <Frame CornerRadius="40" 
+                               HeightRequest="80" BorderColor="Transparent"
+                               WidthRequest="80" Margin="0,0,10,0">
+
+                                <Image Source="leephoto.png" 
+                                   Aspect="AspectFill"
+                                   HeightRequest="80" 
+                                   WidthRequest="80"/>
+                            </Frame>
+
+                            <StackLayout>
+                                <Label Text="이지훈" FontSize="30" FontAttributes="Bold"/>
+                                <Label Text=" Student Number" FontSize="15" TextColor="LightGray"/>
+                                <Label Text=" 팀장 · UI/UX Designer (Figma)" FontSize="15" TextColor="LightGray"/>
+                            </StackLayout>
+                        </FlexLayout>
+                    </Border>
+
+                    <Border StrokeThickness="0">
+                        <FlexLayout Margin="20">
+                            <Frame CornerRadius="40" 
+                               HeightRequest="80" BorderColor="Transparent"
+                               WidthRequest="80" Margin="0,0,10,0">
+
+                                <Image Source="sinphoto.png" 
+                                   Aspect="AspectFill"
+                                   HeightRequest="80" 
+                                   WidthRequest="80"/>
+                            </Frame>
+
+                            <StackLayout>
+                                <Label Text="신승호" FontSize="30" FontAttributes="Bold"/>
+                                <Label Text=" Student Number" FontSize="15" TextColor="LightGray"/>
+                                <Label Text=" XAML Designer" FontSize="15" TextColor="LightGray"/>
+                            </StackLayout>
+                        </FlexLayout>
+                    </Border>
+                </StackLayout>
+            </Border>
+
+
+            --><!--<StackLayout>
+                    <Label Text="ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ" HorizontalOptions="Center"/>
+                    <Label Text="UI/UX Designer" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Image Source="leephoto.png" HeightRequest="200" BackgroundColor="Transparent"/>
+                    <Label Text="이지훈"  HorizontalOptions="Center"/>
+                    <Label Text="ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ" HorizontalOptions="Center"/>
+                    <Label Text="Xaml Designer" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Image Source="sinphoto.png" HeightRequest="200" BackgroundColor="Transparent"/>
+                    <Label Text="신승호"  HorizontalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>--><!--
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>-->

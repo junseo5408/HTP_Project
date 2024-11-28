@@ -9,6 +9,7 @@ namespace test_app.ViewModel
     public partial class Rorschach_ViewModel : ObservableObject
     {
         OpenAIClient openAI;
+        DataBaseConnect db = new DataBaseConnect();
         private List<string> answers = new List<string>();
 
         [ObservableProperty]
@@ -148,6 +149,7 @@ namespace test_app.ViewModel
         {
             openAI = new OpenAIClient();
             RorschachTest.ResultMsg = await openAI.GetRorschachResultAsync(answers);
+            await db.Add_RorResult(RorschachTest.ResultMsg);
             RemovePage();
         }
     }

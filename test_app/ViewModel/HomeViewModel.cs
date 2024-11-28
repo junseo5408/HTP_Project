@@ -20,13 +20,6 @@ namespace test_app.ViewModel
         }
 
         [RelayCommand]
-        void GoTest()
-        {
-            Shell.Current.GoToAsync(nameof(LoginPage));
-        }
-
-
-        [RelayCommand]
         void GoTest2()
         {
             Shell.Current.GoToAsync(nameof(InfoPage));

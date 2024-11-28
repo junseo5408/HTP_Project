@@ -33,9 +33,6 @@
                              Source="banner2.png"
                              CornerRadius="20" Aspect="AspectFill"/>
             
-            <Button Command="{Binding GoTestCommand}"
-                    Text="Test"/>
-
             <Button Command="{Binding GoTest2Command}"
                     Text="Test2"/>
 

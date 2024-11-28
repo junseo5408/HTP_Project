@@ -14,6 +14,7 @@ namespace test_app.ViewModel
     public partial class HTP_ViewModel : ObservableObject
     {
         OpenAIClient openAI;
+        DataBaseConnect db = new DataBaseConnect();
         private string _outputMsg = HTP_Data.ResultMsg;
         private string _houseMsg = HTP_Data.HouseMsg;
         private string _treeMsg = HTP_Data.TreeMsg;
@@ -160,8 +161,7 @@ namespace test_app.ViewModel
             openAI = new OpenAIClient();
             string all_msg = await openAI.GetPictureDescriptionAsync(dataUrl);
             SetMiddleString(all_msg);
-            //HTP_Data.isLoading = false;
-            //HTP_Data.isResultOut = true;
+            await db.Add_HTP_Result(HTP_Data.HouseMsg, HTP_Data.TreeMsg, HTP_Data.PersonMsg, HTP_Data.ResultMsg);
             await GoResultPage();
         }
 
@@ -252,7 +252,6 @@ namespace test_app.ViewModel
                 {
                     HTP_Data.ResultMsg = str.Substring(startIndex4, endIndex4 - startIndex4).Replace("\n", "").Replace("\r", "");
                 }
-
             }
             catch (Exception ex)
             {

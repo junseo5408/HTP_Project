@@ -28,7 +28,7 @@ namespace test_app.Model
 
             var json = JsonSerializer.Serialize(userData);
             await File.WriteAllTextAsync(FilePath, json);
-            await Application.Current.MainPage.DisplayAlert("알림", "유저정보를 저장했습니다.", "확인");
+            //await Application.Current.MainPage.DisplayAlert("알림", "유저정보를 저장했습니다.", "확인");
         }
 
         public async Task LoadUserData()
@@ -43,8 +43,8 @@ namespace test_app.Model
                     if (userData != null)
                     {
                         // 화면에 이름과 이메일 표시 (예: Entry 컨트롤 사용)
-                        Email = userData.name;
-                        Name = userData.email;
+                        Email = userData.email;
+                        Name = userData.name;
                     }
                     IsLoggedin = true;
                     //await Application.Current.MainPage.DisplayAlert("알림", "유저정보가 존재합니다.", "확인");

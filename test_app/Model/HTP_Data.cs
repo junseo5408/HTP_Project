@@ -9,5 +9,7 @@
         public static string base64String { get; set; }
         public static bool isResultOut { get; set; }
         public static bool isLoading { get; set; }
+
+        public static List<FirebaseProperty.HTP_Property> Htp_List;
     }
 }
