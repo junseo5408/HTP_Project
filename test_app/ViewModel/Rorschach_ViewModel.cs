@@ -13,6 +13,9 @@ namespace test_app.ViewModel
         private List<string> answers = new List<string>();
 
         [ObservableProperty]
+        private float persent;
+
+        [ObservableProperty]
         private int step;
 
         [ObservableProperty]
@@ -111,6 +114,7 @@ namespace test_app.ViewModel
         public void SetValue(int index)
         {
             Step = RorschachTest.TestItems[index].Step;
+            Persent = Step * 10;
             SampleImage = RorschachTest.TestItems[index].SampleImage;
             First = RorschachTest.TestItems[index].FirstChoice;
             Second = RorschachTest.TestItems[index].SecondChoice;

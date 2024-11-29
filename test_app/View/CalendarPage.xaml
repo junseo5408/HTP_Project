@@ -2,9 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="test_app.View.CalendarPage"
-             xmlns:xc="clr-namespace:XCalendar.Maui.Views;assembly=XCalendar.Maui"
              xmlns:viewmodel="clr-namespace:test_app.ViewModel"
-             x:DataType="viewmodel:ArchiveViewModel"
              xmlns:ct="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title="" Background="#F0F0F0">
     <Grid>
@@ -14,15 +12,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <FlexLayout Grid.Row="0" >
-            <Frame HeightRequest="1"
+        <Grid Grid.Row="0" >
+            <FlexLayout>
+                <Frame HeightRequest="1"
                    WidthRequest="25"
                    BackgroundColor="Transparent"
                    BorderColor="Transparent"/>
-            
-            <Image Source="logo1.png"
+
+                <Image Source="logo1.png"
                HeightRequest="40"/>
-        </FlexLayout>
+            </FlexLayout>
+            <Button HeightRequest="40" Text="기록 전체보기" BackgroundColor="Transparent"
+                    TextColor="Gray" HorizontalOptions="End" Command="{Binding GoResultPageCommand}"/>
+        </Grid>
 
         <FlexLayout AlignItems="Center" Grid.Row="1" HorizontalOptions="End" Margin="0,0,15,0">
             <Border HeightRequest="15" StrokeThickness="0" WidthRequest="15" BackgroundColor="#4F7C2D">

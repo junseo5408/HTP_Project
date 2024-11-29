@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="test_app.View.ResultListPage"
+             xmlns:viewmodel="clr-namespace:test_app.ViewModel"
+             Shell.BackgroundColor="#F0F0F0"
+             Background="#F0F0F0"
+             Title="">
+
+    <VerticalStackLayout Margin="20,0,20,0">
+        <Label Text="전체결과보기" FontSize="35"/>
+        <FlexLayout>
+            <Label Text="HTP테스트 결과: "/>
+            <Label x:Name="htp_count"/>
+        </FlexLayout>
+        <CollectionView x:Name="HTP_List"
+                        ItemsLayout="VerticalList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border WidthRequest="360" BackgroundColor="White" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+
+                        <StackLayout Margin="30">
+                            <StackLayout>
+                                <Label Text="House" FontAttributes="Bold"/>
+                                <Label Text="{Binding House}"/>
+                            </StackLayout>
+
+                            <Frame HeightRequest="1" BackgroundColor="Transparent" 
+                                       BorderColor="Transparent"/>
+
+                            <StackLayout>
+                                <Label Text="Tree" FontAttributes="Bold"/>
+                                <Label Text="{Binding Tree}"/>
+                            </StackLayout>
+
+                            <Frame HeightRequest="1" BackgroundColor="Transparent" 
+                                       BorderColor="Transparent"/>
+
+                            <StackLayout>
+                                <Label Text="Person" 
+                                           FontAttributes="Bold"/>
+                                <Label Text="{Binding Person}"/>
+                            </StackLayout>
+
+                            <Border HeightRequest="1"
+                                        BackgroundColor="LightGray"
+                                        Margin="0, 20"/>
+                            <Label Text="{Binding Result}"/>
+                        </StackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <FlexLayout>
+            <Label Text="로르샤흐 테스트 결과: "/>
+            <Label x:Name="ror_count"/>
+        </FlexLayout>
+
+        <CollectionView x:Name="RorList"
+                        ItemsLayout="VerticalList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="White" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+
+                        <Label Text="{Binding Result}" Margin="30"/>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

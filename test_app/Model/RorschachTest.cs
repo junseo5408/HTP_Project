@@ -24,6 +24,6 @@
 
         public static string ResultMsg { get; set; }
 
-        public static List<FirebaseProperty.Ror_Property> Ror_List;
+        //public static List<FirebaseProperty.Ror_Property> Ror_List {  get; set; }
     }
 }

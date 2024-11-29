@@ -32,9 +32,6 @@
                              BackgroundColor="White"
                              Source="banner2.png"
                              CornerRadius="20" Aspect="AspectFill"/>
-            
-            <Button Command="{Binding GoTest2Command}"
-                    Text="Test2"/>
 
             <Frame BackgroundColor="Transparent"
                        BorderColor="Transparent"/>

@@ -18,11 +18,5 @@ namespace test_app.ViewModel
         {
             Shell.Current.GoToAsync(nameof(Rorschach_StartPage));
         }
-
-        [RelayCommand]
-        void GoTest2()
-        {
-            Shell.Current.GoToAsync(nameof(InfoPage));
-        }
     }
 }

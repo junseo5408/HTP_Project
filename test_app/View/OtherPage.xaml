@@ -64,8 +64,13 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="20"/>
                     </Border.StrokeShape>
+                    
                     <StackLayout>
                         <Grid HeightRequest="76">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                      Command="{Binding GoInfoPageCommand}"/>
+                            </Grid.GestureRecognizers>
                             <FlexLayout AlignItems="Center">
                                 <Frame BackgroundColor="#FFDB0F"
                                    WidthRequest="40"
@@ -79,7 +84,7 @@
                                       Aspect="AspectFill"    />
 
                                 </Frame>
-                                <Label Text="다크모드"
+                                <Label Text="정보"
                                    FontSize="20"/>
                             </FlexLayout>
                         </Grid>

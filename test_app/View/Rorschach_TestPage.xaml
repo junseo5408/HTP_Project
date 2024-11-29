@@ -4,6 +4,7 @@
              x:Class="test_app.View.Rorschach_TestPage"
              xmlns:viewmodel="clr-namespace:test_app.ViewModel"
              x:DataType="viewmodel:Rorschach_ViewModel"
+             xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
              Shell.TabBarIsVisible="False"
              Title="로르샤흐 테스트"
              Shell.BackgroundColor="#F0F0F0"
@@ -35,10 +36,14 @@
                     </Border.StrokeShape>
                     <VerticalStackLayout Margin="30,20,30,20">
 
-                        <ProgressBar Progress="{Binding ProgressValue}"
-                                     ProgressColor="#4F7C2D"
-                                     BackgroundColor="#7F4F7C2D"/>
-
+                        <mdc:ProgressIndicator Style="{DynamicResource LinearProgressIndicatorStyle}" 
+                                               Percent="{Binding Persent, Mode=OneWay}"
+                                               WidthRequest="330" Margin="0,0,0,15"
+                                               ActiveIndicatorColor="Green"
+                                               BackgroundColor="LightGrey"
+                                               ActiveIndicatorHeight="10"
+                                               HeightRequest="10"/>
+                        
                         <FlexLayout>
                             <Label Text= "Q"/>
                             <Label Text="{Binding Step}"/>

@@ -15,6 +15,20 @@ namespace test_app.Model
             public string name { get; set; }
         }
 
+        public class ResultHTP_Data()
+        {
+            public string house { get; set; }
+            public string tree { get; set; }
+            public string person { get; set; }
+            public string result { get; set; }
+        }
+
+        public class ResultRor_Data()
+        {
+            public string Result { get; set; }
+
+        }
+
         private string FileName = "UserData.json";
         private string FilePath => Path.Combine(FileSystem.AppDataDirectory, FileName);
 

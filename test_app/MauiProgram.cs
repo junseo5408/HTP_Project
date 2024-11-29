@@ -36,12 +36,17 @@ namespace test_app
             builder.Services.AddTransient<FiveWhysPage>();
             builder.Services.AddTransient<Rorschach_ViewModel>();
 
+            builder.Services.AddTransient<InfoPage>();
             builder.Services.AddTransient<LoginPage>();
             builder.Services.AddTransient<SignUpPage>();
             builder.Services.AddTransient<LoginViewModel>();
-            builder.Services.AddTransient<InfoPage>();
             builder.Services.AddTransient<OtherPage>();
             builder.Services.AddTransient<OtherViewModel>();
+
+            builder.Services.AddTransient<ResultListPage>();
+            builder.Services.AddTransient<CalendarPage>();
+            builder.Services.AddTransient<ArchiveViewModel>();
+
 
 
 

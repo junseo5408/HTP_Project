@@ -17,6 +17,9 @@ namespace test_app
             Routing.RegisterRoute(nameof(SignUpPage), typeof(SignUpPage));
             Routing.RegisterRoute(nameof(FiveWhysPage), typeof(FiveWhysPage));
             Routing.RegisterRoute(nameof(InfoPage), typeof(InfoPage));
+            Routing.RegisterRoute(nameof(ResultListPage), typeof(ResultListPage));
+            Routing.RegisterRoute(nameof(CalendarPage), typeof(CalendarPage));
+
 
             //Routing.RegisterRoute(nameof(CameraPage), typeof(CameraPage));
         }

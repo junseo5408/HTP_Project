@@ -1,7 +1,9 @@
 ﻿using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
+using System.Collections.Generic;
 using System.Diagnostics;
 using test_app.Model;
+using static test_app.Model.UserData;
 using FileSystem = Microsoft.Maui.Storage.FileSystem;
 
 
@@ -91,15 +93,13 @@ namespace test_app
                     }
                 }
                 return true;
-                await LoadHTP_Data();
-                await LoadRorData();
             }
             else return false;
         }
 
-        public async Task LoadHTP_Data()
+        public async Task<List<ResultHTP_Data>> LoadHTP_Data()
         {
-            List<FirebaseProperty.HTP_Property> htpList = new List<FirebaseProperty.HTP_Property>();
+            var list = new List < ResultHTP_Data >();
             try
             {
                 await initFirestore();
@@ -113,7 +113,14 @@ namespace test_app
                         if (doc.Exists)
                         {
                             FirebaseProperty.HTP_Property data = doc.ConvertTo<FirebaseProperty.HTP_Property>();
-                            htpList.Add(data);
+                            //Model.HTP_Data.Htp_List.Add(data);
+                            list.Add(new ResultHTP_Data
+                            {
+                                house = data.House,
+                                tree = data.Tree,
+                                person = data.Person,
+                                result = data.Result
+                            });
                         }
                     }
                 }
@@ -122,27 +129,30 @@ namespace test_app
             {
                 await Application.Current.MainPage.DisplayAlert("경고", "HTP데이터 불러오기 실패.", "확인");
             }
-            Model.HTP_Data.Htp_List = htpList;
+            return list;
         }
 
 
-        public async Task LoadRorData()
+        public async Task<List<ResultRor_Data>> LoadRorData()
         {
-            List<FirebaseProperty.Ror_Property> htpList = new List<FirebaseProperty.Ror_Property>();
+            var list = new List<ResultRor_Data>();
             try
             {
                 await initFirestore();
                 Query qref = db.Collection("Rorschach_Result").WhereEqualTo("UserEmail", Model.UserData.Email);
                 QuerySnapshot snap = await qref.GetSnapshotAsync();
 
-                if (snap.Count > 0)
+                if (snap.Count == 1)
                 {
-                    foreach (DocumentSnapshot doc in snap.Documents)
+                    foreach (DocumentSnapshot docsnap in snap)
                     {
-                        if (doc.Exists)
+                        foreach (var field in docsnap.ToDictionary())
                         {
-                            FirebaseProperty.Ror_Property data = doc.ConvertTo<FirebaseProperty.Ror_Property>();
-                            htpList.Add(data);
+                            if (field.Key == "Result")
+                                list.Add(new ResultRor_Data
+                                {
+                                    Result = field.Value.ToString()
+                                });
                         }
                     }
                 }
@@ -151,7 +161,7 @@ namespace test_app
             {
                 await Application.Current.MainPage.DisplayAlert("경고", "로르샤흐데이터 불러오기 실패.", "확인");
             }
-            Model.RorschachTest.Ror_List = htpList;
+            return list;
         }
 
         public async Task<bool> EmailCheck(string email)
