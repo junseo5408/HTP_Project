@@ -19,7 +19,7 @@ namespace test_app.ViewModel
         [RelayCommand]
         void GoInfoPage()
         {
-            Shell.Current.GoToAsync(nameof(ResultListPage));
+            Shell.Current.GoToAsync(nameof(InfoPage));
         }
     }
 }

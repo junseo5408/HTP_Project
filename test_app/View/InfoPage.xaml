@@ -14,6 +14,7 @@
                        BorderColor="Transparent"/>
                 <StackLayout>
                     <Label Text="Developer" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Image Source="hjs.jpg" HeightRequest="200" BackgroundColor="Transparent"/>
                     <Label Text="황준서"  HorizontalOptions="Center"/>
                     <Label Text="ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ" HorizontalOptions="Center"/>
                     <Label Text="UI/UX Designer" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
