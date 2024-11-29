@@ -45,6 +45,11 @@ namespace test_app.Model
             //await Application.Current.MainPage.DisplayAlert("알림", "유저정보를 저장했습니다.", "확인");
         }
 
+        public void DeleteUserData()
+        {
+            File.Delete(FilePath);
+        }
+
         public async Task LoadUserData()
         {
             try

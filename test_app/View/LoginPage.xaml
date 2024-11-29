@@ -47,7 +47,7 @@
                            LabelText="비밀번호"
                            InputType="Password"/>
 
-            <Button Text="로그인"
+            <Button Text="로그인" TextColor="White"
                     Command="{Binding Login_ClickedCommand}"
                     BackgroundColor="#4F7C2D"/>
         </StackLayout>
