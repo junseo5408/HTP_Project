@@ -26,7 +26,7 @@ namespace test_app
         public OpenAIClient()
         {
             string endpoint = "https://gpt4oazure.openai.azure.com/";
-            string apiKey = "34cTmT3i4rlCKDHbcoOSt0pVmLZrHDDkQMQgrjjZAbwTpcoz2oMHJQQJ99AKACNns7RXJ3w3AAABACOGFum7";
+            string apiKey = "";
             string modelName = "gpt-4o";
             var uriEndpoint = new Uri(endpoint);
             var credentials = new AzureKeyCredential(apiKey);
