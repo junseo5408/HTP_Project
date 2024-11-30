@@ -2,6 +2,7 @@
 using Google.Cloud.Firestore.V1;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Xml.Linq;
 using test_app.Model;
 using static test_app.Model.UserData;
 using FileSystem = Microsoft.Maui.Storage.FileSystem;
@@ -100,26 +101,34 @@ namespace test_app
         public async Task<List<ResultHTP_Data>> LoadHTP_Data()
         {
             var list = new List < ResultHTP_Data >();
+            string h, t, p, r;
             try
             {
                 await initFirestore();
                 Query qref = db.Collection("HTP_Result").WhereEqualTo("UserEmail", Model.UserData.Email);
                 QuerySnapshot snap = await qref.GetSnapshotAsync();
 
-                if (snap.Count > 0)
+                if (snap.Count == 1)
                 {
-                    foreach (DocumentSnapshot doc in snap.Documents)
+                    foreach (DocumentSnapshot docsnap in snap)
                     {
-                        if (doc.Exists)
+                        if (docsnap.Exists)
                         {
-                            FirebaseProperty.HTP_Property data = doc.ConvertTo<FirebaseProperty.HTP_Property>();
-                            //Model.HTP_Data.Htp_List.Add(data);
+                            var docData = docsnap.ToDictionary();
+
+                            // 필드를 추출하고 ResultHTP_Data 객체 생성
+                            string house = docData.ContainsKey("House") ? docData["House"].ToString() : string.Empty;
+                            string tree = docData.ContainsKey("Tree") ? docData["Tree"].ToString() : string.Empty;
+                            string person = docData.ContainsKey("Person") ? docData["Person"].ToString() : string.Empty;
+                            string result = docData.ContainsKey("Result") ? docData["Result"].ToString() : string.Empty;
+
+                            // 리스트에 추가
                             list.Add(new ResultHTP_Data
                             {
-                                house = data.House,
-                                tree = data.Tree,
-                                person = data.Person,
-                                result = data.Result
+                                house = house,
+                                tree = tree,
+                                person = person,
+                                result = result
                             });
                         }
                     }

@@ -167,8 +167,8 @@ namespace test_app.ViewModel
 
         async Task GoResultPage()
         {
-            await Shell.Current.GoToAsync(nameof(HTP_ResultPage));
             RemovePage();
+            await Shell.Current.GoToAsync(nameof(HTP_ResultPage));
         }
 
         async Task OpenLoadingPage()
@@ -184,7 +184,7 @@ namespace test_app.ViewModel
                 image.Mutate(x => x.Resize(width, height));
 
                 // JPEG 포맷으로 저장 (품질 설정 가능)
-                image.Save(outputPath, new JpegEncoder { Quality = 60 });
+                image.Save(outputPath, new JpegEncoder { Quality = 50 });
             }
 
             return outputPath;

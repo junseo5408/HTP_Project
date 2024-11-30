@@ -10,7 +10,7 @@
              Title="HTP 테스트 결과">
 
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout Margin="20, 0, 20, 0">
             <Image Source="person.png" 
                HeightRequest="130"
                Margin="0, 0, 0, -20"
@@ -57,13 +57,28 @@
                     <Label Text="{Binding OutputMsg}"/>
                 </StackLayout>
             </Border>
-
+            <Frame HeightRequest="10" 
+               BackgroundColor="Transparent"
+               BorderColor="Transparent"/>
             <Button 
-                BackgroundColor="#4F7C2D" 
-                Text="저장하기"
-                HeightRequest="55"
-                CornerRadius="20"
-                Margin="20"/>
+            BackgroundColor="#4F7C2D" 
+            Text="근본 분석하기"
+            HeightRequest="55"
+            CornerRadius="20"/>
+            
+            <Frame HeightRequest="10" 
+               BackgroundColor="Transparent"
+               BorderColor="Transparent"/>
+            
+            <Button 
+            BackgroundColor="#4F7C2D"
+            Command="{Binding GoHomeCommand}"
+            Text="돌아가기"
+            HeightRequest="55"
+            CornerRadius="20"/>
+            <Frame HeightRequest="10" 
+               BackgroundColor="Transparent"
+               BorderColor="Transparent"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

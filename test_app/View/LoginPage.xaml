@@ -50,15 +50,15 @@
             <Button Text="로그인" TextColor="White"
                     Command="{Binding Login_ClickedCommand}"
                     BackgroundColor="#4F7C2D"/>
-        </StackLayout>
 
 
-        <Button VerticalOptions="End"
+            <Button VerticalOptions="End"
                 HorizontalOptions="Center"
                 BackgroundColor="Transparent"
                 TextColor="Gray"
                 Margin="20"
                 Command="{Binding GoSignUpPageCommand}"
                 Text="회원가입하기"/>
+        </StackLayout>
     </Grid>
 </ContentPage>
