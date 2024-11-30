@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using test_app.Model;
 using test_app.View;
 
 namespace test_app.ViewModel

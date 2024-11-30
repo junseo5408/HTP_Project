@@ -13,6 +13,9 @@ namespace test_app.ViewModel
         private List<string> answers = new List<string>();
 
         [ObservableProperty]
+        private string name = Model.UserData.Name;
+
+        [ObservableProperty]
         private float persent;
 
         [ObservableProperty]

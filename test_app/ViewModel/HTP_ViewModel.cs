@@ -22,6 +22,9 @@ namespace test_app.ViewModel
         //private bool _resultOut = HTP_Data.isResultOut;
         //private bool _isLoading = HTP_Data.isLoading;
 
+        [ObservableProperty]
+        private string name = Model.UserData.Name;
+
         public string OutputMsg
         {
             get { return _outputMsg; }

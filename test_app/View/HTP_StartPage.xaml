@@ -16,7 +16,7 @@
         
         <StackLayout Margin="30, 0, 30, 0">
             <FlexLayout>
-                <Label Text="user user"
+                <Label Text="{Binding Name , Mode=OneWay}"
                        FontAttributes="Bold"
                        FontSize="20"/>
                 

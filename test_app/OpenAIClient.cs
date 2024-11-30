@@ -1,8 +1,6 @@
 ﻿using Azure;
 using Azure.AI.OpenAI;
-using Azure.Identity;
 using OpenAI.Chat;
-using test_app.Model;
 
 namespace test_app
 {

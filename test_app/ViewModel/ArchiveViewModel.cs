@@ -1,8 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using test_app.Model;
 using test_app.View;
-using static test_app.Model.FirebaseProperty;
 using static test_app.Model.UserData;
 
 

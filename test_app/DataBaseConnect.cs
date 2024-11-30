@@ -1,9 +1,6 @@
 ﻿using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Xml.Linq;
-using test_app.Model;
 using static test_app.Model.UserData;
 using FileSystem = Microsoft.Maui.Storage.FileSystem;
 

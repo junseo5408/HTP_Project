@@ -7,7 +7,5 @@
         public static string TreeMsg { get; set; }
         public static string PersonMsg { get; set; }
         public static string base64String { get; set; }
-
-        //public static List<FirebaseProperty.HTP_Property> Htp_List { get; set; }
     }
 }
