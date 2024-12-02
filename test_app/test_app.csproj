@@ -56,7 +56,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidAsset Remove="Platforms\Android\Assets\team-npu-firebase-adminsdk-47z6i-de259c450c.json" />
+	  <AndroidAsset Remove="Platforms\Android\Assets\team-npu-firebase-adminsdk-47z6i-bad2b3a021.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -69,7 +69,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Platforms\Android\Assets\team-npu-firebase-adminsdk-47z6i-de259c450c.json" />
+	  <None Remove="Platforms\Android\Assets\team-npu-firebase-adminsdk-47z6i-bad2b3a021.json" />
 	  <None Remove="Resources\Images\back.png" />
 	  <None Remove="Resources\Images\banner1.png" />
 	  <None Remove="Resources\Images\banner2.png" />
@@ -93,7 +93,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="Platforms\Android\Assets\team-npu-firebase-adminsdk-47z6i-de259c450c.json">
+	  <Content Include="Platforms\Android\Assets\team-npu-firebase-adminsdk-47z6i-bad2b3a021.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
 	  <Content Include="Platforms\Android\Resources\Raw\team-npu-firebase-adminsdk-47z6i-de259c450c.json">
@@ -128,12 +128,6 @@
 		<PackageReference Include="SixLabors.ImageSharp" Version="3.1.5" />
 		<PackageReference Include="Syncfusion.Maui.Calendar" Version="27.2.2" />
 		<PackageReference Include="System.ObjectModel" Version="4.3.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiAsset Update="Resources\Raw\team-npu-firebase-adminsdk-47z6i-de259c450c.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </MauiAsset>
 	</ItemGroup>
 
 	<ItemGroup>

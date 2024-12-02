@@ -10,7 +10,7 @@ namespace test_app
     public class DataBaseConnect
     {
         private FirestoreDb db;
-        private string jsonName = "team-npu-firebase-adminsdk-47z6i-de259c450c.json";
+        private string jsonName = "team-npu-firebase-adminsdk-47z6i-bad2b3a021.json";
 
         private async Task initFirestore()
         {
