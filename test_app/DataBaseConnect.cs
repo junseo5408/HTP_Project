@@ -10,7 +10,7 @@ namespace test_app
     public class DataBaseConnect
     {
         private FirestoreDb db;
-        private string jsonName = "team-npu-firebase-adminsdk-47z6i-bad2b3a021.json";
+        private string jsonName = "json파일을 Resources 폴더에 넣고 파일이름 입력";
 
         private async Task initFirestore()
         {
